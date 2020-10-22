@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="15" failures="2" disabled="0" errors="0" time="32.941" timestamp="2020-10-19T13:00:24" name="AllTests">
+  <testsuite name="setPatientName" tests="1" failures="0" disabled="0" errors="0" time="19.92" timestamp="2020-10-19T13:00:24">
+    <testcase name="setPatientName" status="run" result="completed" time="19.92" timestamp="2020-10-19T13:00:24" classname="setPatientName" />
+  </testsuite>
+  <testsuite name="getPatientName" tests="1" failures="0" disabled="0" errors="0" time="1.001" timestamp="2020-10-19T13:00:44">
+    <testcase name="getPatientName" status="run" result="completed" time="1.001" timestamp="2020-10-19T13:00:44" classname="getPatientName" />
+  </testsuite>
+  <testsuite name="setAge" tests="1" failures="0" disabled="0" errors="0" time="1.001" timestamp="2020-10-19T13:00:45">
+    <testcase name="setAge" status="run" result="completed" time="1.001" timestamp="2020-10-19T13:00:45" classname="setAge" />
+  </testsuite>
+  <testsuite name="getAge" tests="1" failures="0" disabled="0" errors="0" time="1.001" timestamp="2020-10-19T13:00:46">
+    <testcase name="getAge" status="run" result="completed" time="1.001" timestamp="2020-10-19T13:00:46" classname="getAge" />
+  </testsuite>
+  <testsuite name="setGender" tests="1" failures="0" disabled="0" errors="0" time="1" timestamp="2020-10-19T13:00:47">
+    <testcase name="Example" status="run" result="completed" time="1" timestamp="2020-10-19T13:00:47" classname="setGender" />
+  </testsuite>
+  <testsuite name="getGender" tests="1" failures="0" disabled="0" errors="0" time="1.001" timestamp="2020-10-19T13:00:48">
+    <testcase name="Example" status="run" result="completed" time="1.001" timestamp="2020-10-19T13:00:48" classname="getGender" />
+  </testsuite>
+  <testsuite name="setBatteryPercentage75" tests="1" failures="0" disabled="0" errors="0" time="1.001" timestamp="2020-10-19T13:00:49">
+    <testcase name="setBatteryPercentage75" status="run" result="completed" time="1.001" timestamp="2020-10-19T13:00:49" classname="setBatteryPercentage75" />
+  </testsuite>
+  <testsuite name="getBatteryPercentage75" tests="1" failures="0" disabled="0" errors="0" time="1.001" timestamp="2020-10-19T13:00:50">
+    <testcase name="getBatteryPercentage75" status="run" result="completed" time="1.001" timestamp="2020-10-19T13:00:50" classname="getBatteryPercentage75" />
+  </testsuite>
+  <testsuite name="setBatteryPercentage65" tests="1" failures="0" disabled="0" errors="0" time="1" timestamp="2020-10-19T13:00:51">
+    <testcase name="setBatteryPercentage65" status="run" result="completed" time="1" timestamp="2020-10-19T13:00:51" classname="setBatteryPercentage65" />
+  </testsuite>
+  <testsuite name="getBatteryPercentage65" tests="1" failures="0" disabled="0" errors="0" time="1.001" timestamp="2020-10-19T13:00:52">
+    <testcase name="getBatteryPercentage65" status="run" result="completed" time="1.001" timestamp="2020-10-19T13:00:52" classname="getBatteryPercentage65" />
+  </testsuite>
+  <testsuite name="setBatteryStatus" tests="1" failures="0" disabled="0" errors="0" time="1.001" timestamp="2020-10-19T13:00:53">
+    <testcase name="setBatteryStatus" status="run" result="completed" time="1.001" timestamp="2020-10-19T13:00:53" classname="setBatteryStatus" />
+  </testsuite>
+  <testsuite name="getBatteryStatus" tests="1" failures="0" disabled="0" errors="0" time="1.001" timestamp="2020-10-19T13:00:54">
+    <testcase name="Example" status="run" result="completed" time="1.001" timestamp="2020-10-19T13:00:54" classname="getBatteryStatus" />
+  </testsuite>
+  <testsuite name="API_PatientAdd" tests="1" failures="1" disabled="0" errors="0" time="1.001" timestamp="2020-10-19T13:00:55">
+    <testcase name="API_PatientAdd" status="run" result="completed" time="1.001" timestamp="2020-10-19T13:00:55" classname="API_PatientAdd">
+      <failure message="/home/sachin/git/UnitGUIRestAPI/UnitGUIRestAPI/UnitTesting/TestRunner/src/ServerMain.cpp:91&#x0A;Expected equality of these values:&#x0A;  &quot;115.000000&quot;&#x0A;  s1.EvaluvateTestcase(&quot;add double 100 15&quot;)&#x0A;    Which is: &quot;Fail&quot;" type=""><![CDATA[/home/sachin/git/UnitGUIRestAPI/UnitGUIRestAPI/UnitTesting/TestRunner/src/ServerMain.cpp:91
+Expected equality of these values:
+  "115.000000"
+  s1.EvaluvateTestcase("add double 100 15")
+    Which is: "Fail"]]></failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="API_PatientRemove" tests="1" failures="1" disabled="0" errors="0" time="1.001" timestamp="2020-10-19T13:00:56">
+    <testcase name="API_PatientRemove" status="run" result="completed" time="1.001" timestamp="2020-10-19T13:00:56" classname="API_PatientRemove">
+      <failure message="/home/sachin/git/UnitGUIRestAPI/UnitGUIRestAPI/UnitTesting/TestRunner/src/ServerMain.cpp:97&#x0A;Expected equality of these values:&#x0A;  &quot;115.000000&quot;&#x0A;  s1.EvaluvateTestcase(&quot;subtract double 130 15&quot;)&#x0A;    Which is: &quot;Fail&quot;" type=""><![CDATA[/home/sachin/git/UnitGUIRestAPI/UnitGUIRestAPI/UnitTesting/TestRunner/src/ServerMain.cpp:97
+Expected equality of these values:
+  "115.000000"
+  s1.EvaluvateTestcase("subtract double 130 15")
+    Which is: "Fail"]]></failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="CSV_Test" tests="1" failures="0" disabled="0" errors="0" time="0.01" timestamp="2020-10-19T13:00:57">
+    <testcase name="CSV_Test" status="run" result="completed" time="0.01" timestamp="2020-10-19T13:00:57" classname="CSV_Test" />
+  </testsuite>
+</testsuites>
