@@ -47,16 +47,17 @@ RUN make install
 
 WORKDIR /src
 
+RUN gitclone https://github.com/nandunarayanan/dockerJenkins.git
 
-COPY UnitGUIRestAPI.tar.xz .
+#COPY UnitGUIRestAPI.tar.xz .
 
-RUN tar -xvf UnitGUIRestAPI.tar.xz
+#RUN tar -xvf UnitGUIRestAPI.tar.xz
 
-WORKDIR /src/UnitGUIRestAPI/UnitGUIRestAPI/UnitTesting/TestEnvironment/AUTRunner
+WORKDIR /src/dockerJenkins/UnitGUIRestAPI/UnitTesting/TestEnvironment/AUTRunner
 
 RUN cmake . && make
 
-WORKDIR /src/UnitGUIRestAPI/UnitGUIRestAPI/UnitTesting/TestRunner
+WORKDIR /src/dockerJenkins/UnitGUIRestAPI/UnitTesting/TestRunner
 
 
 RUN cmake . && make
