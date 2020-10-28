@@ -10,4 +10,4 @@ UnitTest File has the Test Runner & Test Environment files
 	
 	Replacing ip address "192.168.43.242" with "192.168.43.144"
 	"192.168.43.71" with "192.168.43.144"
-Testing for the poll
+Testing for the polling in the jenkins
