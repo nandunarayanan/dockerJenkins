@@ -11,3 +11,31 @@ UnitTest File has the Test Runner & Test Environment files
 	Replacing ip address "192.168.43.242" with "192.168.43.144"
 	"192.168.43.71" with "192.168.43.144"
 Testing for the polling in the jenkins
+
+
+pipeline {
+    agent none
+    stages {
+        stage('Checkout') {
+            agent any
+            steps {                
+                checkout([$class: 'GitSCM', 
+				branches: [[name: "origin/master"]], 
+				userRemoteConfigs: [[
+                url: 'https://github.com/pipelineascodecourse/pipeline-agent-dockerfile.git']],
+				extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'checkout-directory']]
+				])
+            }
+        }
+        stage('dockerfile'){            
+            agent {
+                dockerfile {
+                    customWorkspace '/var/lib/jenkins/workspace/pipeline-agent-dockerfile-customWorkspace/checkout-directory'
+                } 
+            }            
+            steps{
+                sh 'cat /etc/lsb-release'
+            }
+        }
+    }
+}
