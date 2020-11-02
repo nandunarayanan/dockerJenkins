@@ -92,11 +92,13 @@ private:
                 matched_ = info.total_count;
                 first_connected_ = true;
     		LOG_INFO("Publisher matched.: LOG_INFO\n");
+		    std::cout << "Publisher matched.: LOG_INFO\n " << std::endl;
             }
             else if (info.current_count_change == -1)
             {
                 matched_ = info.total_count;
     		LOG_INFO("Publisher unmatched.: LOG_INFO\n");
+		    std::cout << "Publisher unmatched.: LOG_INFO\n " << std::endl;
             }
             else
             {
