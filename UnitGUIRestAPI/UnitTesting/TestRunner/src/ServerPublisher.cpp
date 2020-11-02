@@ -441,6 +441,8 @@ char *argv[] = {"Dummy", "publisher", "-a", "10.10.196.129", "-p", "5100"};
 #endif
 
     std::cout << "Starting " << std::endl;
+	
+    std::cout << "Starting 123 " << std::endl;
     LOG_INFO("Starting:\n");
     int type = 1;
     int count = 0;
