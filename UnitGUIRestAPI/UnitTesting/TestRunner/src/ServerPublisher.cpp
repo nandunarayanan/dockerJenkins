@@ -440,9 +440,7 @@ char *argv[] = {"Dummy", "publisher", "-a", "10.10.196.129", "-p", "5100"};
     columns = getenv("COLUMNS") ? atoi(getenv("COLUMNS")) : 80;
 #endif
 
-    std::cout << "Starting " << std::endl;
-	
-    std::cout << "Starting 123 456" << std::endl;
+    std::cout << "Starting -->Updated to test the image updation process<--" << std::endl;
     LOG_INFO("Starting:\n");
     int type = 1;
     int count = 0;
