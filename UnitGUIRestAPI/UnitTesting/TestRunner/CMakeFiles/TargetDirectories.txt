@@ -1,3 +1,0 @@
-/home/sachin/git/UnitGUIRestAPI/UnitGUIRestAPI/UnitTesting/TestRunner/CMakeFiles/rebuild_cache.dir
-/home/sachin/git/UnitGUIRestAPI/UnitGUIRestAPI/UnitTesting/TestRunner/CMakeFiles/edit_cache.dir
-/home/sachin/git/UnitGUIRestAPI/UnitGUIRestAPI/UnitTesting/TestRunner/CMakeFiles/Gtest_Exec.dir
