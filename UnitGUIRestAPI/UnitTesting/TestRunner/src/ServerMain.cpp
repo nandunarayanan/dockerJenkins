@@ -85,19 +85,22 @@ TEST(getBatteryStatus, Example)
  ASSERT_EQ("0", s1.EvaluvateTestcase("getBatteryStatus int "));  
 }
 
+
+
 /*Test cases for API execution*/
+/*
 TEST(API_PatientAdd, API_PatientAdd) 
 {  	
 	ASSERT_EQ("115.000000", s1.EvaluvateTestcase("add double 100 15"));		
 }
 
-
+/*
 TEST(API_PatientRemove, API_PatientRemove) 
 {  	
 	ASSERT_EQ("115.000000", s1.EvaluvateTestcase("subtract double 130 15"));		
 }
 
-
+*/
 /*Test cases for CSV test cases */
 TEST(CSV_Test, CSV_Test) 
 {  
