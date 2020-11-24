@@ -18,7 +18,7 @@
  */
 
 #include "DataPacketPubSubTypes.h"
-#include "../utility/ServerUtility.h"
+#include "../utility/TestUtility.h"
 
 #include <fastdds/dds/domain/DomainParticipantFactory.hpp>
 #include <fastdds/dds/domain/DomainParticipant.hpp>
@@ -62,7 +62,7 @@ private:
 
     TypeSupport type_;
 
-    ServerUtility* m_s;
+    TestUtility* m_s;
 
     class SubListener : public DataReaderListener
     {
@@ -124,7 +124,7 @@ private:
 
 public:
 
-    ServerSubscriber(ServerUtility* s)
+    ServerSubscriber(TestUtility* s)
         : participant_(nullptr)
         , subscriber_(nullptr)
         , topic_(nullptr)
@@ -375,12 +375,13 @@ const option::Descriptor usage[] = {
 
 
 
-void SubscriberMain(ServerUtility* s)
+void SubscriberMain(TestUtility* s)
 {
     
 	int argc = 6;
 	int columns;
-	char *argv[] = {"Dummy", "subscriber", "-a", "10.10.196.130", "-p", "5100"};
+	//char *argv[] = {"Dummy", "subscriber", "-a", "10.10.196.130", "-p", "5100"};
+	char *argv[] = {"Dummy", "subscriber", "-a", "192.168.43.144", "-p", "5000"};
 	LOG_INFO("Starting subscriber.\n"); 
     	int samples = 10;
 

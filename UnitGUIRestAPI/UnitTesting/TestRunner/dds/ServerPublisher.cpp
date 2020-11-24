@@ -18,7 +18,7 @@
  */
 
 #include "DataPacketPubSubTypes.h"
-#include "../utility/ServerUtility.h"
+#include "../utility/TestUtility.h"
 
 /*From .h file*/
 #include <fastdds/dds/topic/Topic.hpp>
@@ -65,7 +65,7 @@ private:
 
     TypeSupport type_;
 
-    ServerUtility* m_s;
+    TestUtility* m_s;
     
      bool stop_;
 
@@ -116,7 +116,7 @@ private:
 
 public:
 
-    ServerPublisher(ServerUtility* s)
+    ServerPublisher(TestUtility* s)
         : participant_(nullptr)
         , publisher_(nullptr)
         , topic_(nullptr)
@@ -417,11 +417,11 @@ const option::Descriptor usage[] = {
 
 
 
-void PublisherMain(ServerUtility* s)
+void PublisherMain(TestUtility* s)
 {
 int argc = 6;
 int columns;
-char *argv[] = {"Dummy", "publisher", "-a", "10.10.196.129", "-p", "5100"};
+char *argv[] = {"Dummy", "publisher", "-a", "192.168.43.144", "-p", "5100"};
 
 
 #if defined(_WIN32)
