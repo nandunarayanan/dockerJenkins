@@ -412,7 +412,8 @@ void PublisherMain(AUTUtility* c)
 
 int argc = 6;
 int columns;
-char *argv[] = {"Dummy", "publisher", "-a", "10.10.196.130", "-p", "5100"};
+//char *argv[] = {"Dummy", "publisher", "-a", "10.10.196.130", "-p", "5100"};
+char *argv[] = {"Dummy", "publisher", "-a", "192.168.43.144", "-p", "5000"};
 
 
 

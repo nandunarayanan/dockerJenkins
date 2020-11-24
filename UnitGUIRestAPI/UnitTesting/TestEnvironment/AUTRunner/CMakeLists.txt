@@ -49,5 +49,5 @@ configure_file("server.pem" "server.pem" COPYONLY)
 configure_file("ca.pem" "ca.pem" COPYONLY)
 
 add_executable(AUT_Exec ${APP_SOURCES_CPP} ${BOT_SOURCES_CPP} ${AUT_SOURCES_CPP} ${DDS_SOURCES_CPP} ${DDS_SOURCES_CXX})
-#target_link_libraries(AUT_Exec libMath.a)
+target_link_libraries(AUT_Exec libmath.a)
 target_link_libraries(AUT_Exec fastrtps fastcdr foonathan_memory -L./Lib/)

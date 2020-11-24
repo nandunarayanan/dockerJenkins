@@ -66,56 +66,184 @@ std::string Api::Run(std::string testcase)
 {
 	std::string result = "Fail";
 
-	std::stringstream s(testcase); // Used for breaking words   
+	int i_arg1;
+	int i_arg2;
+	int i_arg3;
+	int i_result;
+
+	char c_arg1;
+	char c_arg2;
+	char c_arg3;
+	char c_result;
+
+	float f_arg1;
+	float f_arg2;
+	float f_arg3;
+	float f_result;
+
+	double d_arg1;
+	double d_arg2;
+	double d_arg3;
+	double d_result;
+	
+	std::stringstream s(testcase); // Used for breaking words
+        std::string rule;	
 	std::string fn;
 	std::string returnType;
+	std::string dtype_arg1;
 	std::string arg1;
+	std::string dtype_arg2;
 	std::string arg2;
+	std::string dtype_arg3;
 	std::string arg3;
 	short count = 0;
-
-	if (s >> fn)
+	
+	if(s>>rule)
 	{
-		if (s >> returnType)
+		if(rule == "1")
 		{
-			if (s >> arg1)
+			if (s >> fn)
 			{
-				count++;
-				if (s >> arg2)
+				if (s >> returnType)
 				{
-					count++;
-					if (s >> arg3)
+					if (s >> arg1)
 					{
 						count++;
+						if (s >> arg2)
+						{
+							count++;
+							if (s >> arg3)
+							{
+								count++;
+							}
+							else
+							{
+								std::cout << "Invalid arg3" << std::endl;
+							}
+						}
+						else
+						{
+							std::cout << "Invalid arg2" << std::endl;
+						}
 					}
 					else
 					{
-						std::cout << "Invalid arg3" << std::endl;
+						std::cout << "Invalid arg1" << std::endl;
 					}
 				}
 				else
 				{
-					std::cout << "Invalid arg2" << std::endl;
+					std::cout << "Invalid type" << std::endl;
 				}
 			}
 			else
 			{
-				std::cout << "Invalid arg1" << std::endl;
+				std::cout << "Invalid function" << std::endl;
 			}
-
 		}
 		else
 		{
-			std::cout << "Invalid return type" << std::endl;
+			if (s >> fn)
+			{
+				if (s >> dtype_arg1)
+				{
+					if (s >> arg1)
+					{
+						count++;
+						if(s>> dtype_arg2)
+						{
+							if (s >> arg2)
+							{
+								count++;
+								if(s >> dtype_arg3)
+								{
+									if (s >> arg3)
+									{
+										count++;
+									}
+									else
+									{
+										std::cout << "Invalid arg3" << std::endl;
+									}
+								}
+								else
+								{
+									std::cout << "Invalid arg2" << std::endl;
+								}
+							}
+						}
+						else
+						{
+							std::cout << "Invalid arg1" << std::endl;
+						}
+					}
+				}
+				else
+				{
+					std::cout << "Invalid return type" << std::endl;
+				}
+			}
+			else
+			{
+				std::cout << "Invalid function" << std::endl;
+			}
 		}
 	}
-	else
-	{
-		std::cout << "Invalid function" << std::endl;
-	}
+				
 	std::cout << "Count: " << count <<  std::endl;
-
-
+/*
+	switch (dtype_arg1)
+	{
+		case "int":
+			i_arg1 = stoi(arg1);
+			break;
+		case "float":
+			f_arg1 = stof(arg1);
+			break;
+		case "char":
+			c_arg1 = *arg1;
+			break;
+		case "double":
+			d_arg1 = stod(arg1);
+			break;
+		default:
+			return 0;
+	}
+	switch (dtype_arg2)
+	{
+		case "int":
+			i_arg1 = stoi(arg2);
+			break;
+		case "float":
+			f_arg1 = stof(arg2);
+			break;
+		case "char":
+			c_arg1 = *arg2;
+			break;
+		case "double":
+			d_arg1 = stod(arg2);
+			break;
+		default:
+			return 0;
+	}
+	switch (dtype_arg3)
+	{
+		case "int":
+			i_arg1 = stoi(arg3);
+			break;
+		case "float":
+			f_arg1 = stof(arg3);
+			break;
+		case "char":
+			c_arg1 = *arg3;
+			break;
+		case "double":
+			d_arg1 = stod(arg3);
+			break;
+		default:
+			return 0;
+	}
+*/
 	switch (count)
 	{
 	case 0:
@@ -177,21 +305,111 @@ std::string Api::Run(std::string testcase)
 		}
 		break;
 	case 2:
-		if ("add" == fn)
+		if(rule == "1")
 		{
-//			result = std::to_string(m_arithmetic.Add(stod(arg1), stod(arg2)));
+			if ("add" == fn)
+			{
+				result = std::to_string(m_arithmetic.Add(stod(arg1), stod(arg2)));
+			}
+			else if ("subtract" == fn)
+			{
+				result = std::to_string(m_arithmetic.Subtract(stod(arg1), stod(arg2)));
+			}
+			else if ("multiply" == fn)
+			{
+				result = std::to_string(m_arithmetic.Multiply(stod(arg1), stod(arg2)));
+			}
+			else if ("divide" == fn)
+			{
+				result = std::to_string(m_arithmetic.Divide(stod(arg1), stod(arg2)));
+			}
 		}
-		else if ("subtract" == fn)
+		else
 		{
-//			result = std::to_string(m_arithmetic.Subtract(stod(arg1), stod(arg2)));
-		}
-		else if ("multiply" == fn)
-		{
-//			result = std::to_string(m_arithmetic.Multiply(stod(arg1), stod(arg2)));
-		}
-		else if ("divide" == fn)
-		{
-//			result = std::to_string(m_arithmetic.Divide(stod(arg1), stod(arg2)));
+			if ("add" == fn)
+			{
+				if ((dtype_arg1 == "int") && (dtype_arg2 == "int"))
+					result = std::to_string(m_arithmetic.Add(stoi(arg1), stoi(arg2)));
+				if ((dtype_arg1 == "int") && (dtype_arg2 == "float"))
+					result = std::to_string(m_arithmetic.Add(stoi(arg1), stof(arg2)));
+				if ((dtype_arg1 == "float") && (dtype_arg2 == "int"))
+					result = std::to_string(m_arithmetic.Add(stof(arg1), stoi(arg2)));
+				if ((dtype_arg1 == "float") && (dtype_arg2 == "float"))
+					result = std::to_string(m_arithmetic.Add(stof(arg1), stof(arg2)));
+				if ((dtype_arg1 == "double") && (dtype_arg2 == "int"))
+					result = std::to_string(m_arithmetic.Add(stod(arg1), stoi(arg2)));
+				if ((dtype_arg1 == "int") && (dtype_arg2 == "double"))
+					result = std::to_string(m_arithmetic.Add(stoi(arg1), stod(arg2)));
+				if ((dtype_arg1 == "double") && (dtype_arg2 == "double"))
+					result = std::to_string(m_arithmetic.Add(stod(arg1), stod(arg2)));
+				if ((dtype_arg1 == "float") && (dtype_arg2 == "double"))
+					result = std::to_string(m_arithmetic.Add(stof(arg1), stod(arg2)));
+				if ((dtype_arg1 == "double") && (dtype_arg2 == "float"))
+					result = std::to_string(m_arithmetic.Add(stod(arg1), stof(arg2)));
+			}
+			else if ("subtract" == fn)
+			{
+				if ((dtype_arg1 == "int") && (dtype_arg2 == "int"))
+					result = std::to_string(m_arithmetic.Subtract(stoi(arg1), stoi(arg2)));
+				if ((dtype_arg1 == "int") && (dtype_arg2 == "float"))
+					result = std::to_string(m_arithmetic.Subtract(stoi(arg1), stof(arg2)));
+				if ((dtype_arg1 == "float") && (dtype_arg2 == "int"))
+					result = std::to_string(m_arithmetic.Subtract(stof(arg1), stoi(arg2)));
+				if ((dtype_arg1 == "float") && (dtype_arg2 == "float"))
+					result = std::to_string(m_arithmetic.Subtract(stof(arg1), stof(arg2)));
+				if ((dtype_arg1 == "double") && (dtype_arg2 == "int"))
+					result = std::to_string(m_arithmetic.Subtract(stod(arg1), stoi(arg2)));
+				if ((dtype_arg1 == "int") && (dtype_arg2 == "double"))
+					result = std::to_string(m_arithmetic.Subtract(stoi(arg1), stod(arg2)));
+				if ((dtype_arg1 == "double") && (dtype_arg2 == "double"))
+					result = std::to_string(m_arithmetic.Subtract(stod(arg1), stod(arg2)));
+				if ((dtype_arg1 == "float") && (dtype_arg2 == "double"))
+					result = std::to_string(m_arithmetic.Subtract(stof(arg1), stod(arg2)));
+				if ((dtype_arg1 == "double") && (dtype_arg2 == "float"))
+					result = std::to_string(m_arithmetic.Subtract(stod(arg1), stof(arg2)));
+			}
+			else if ("multiply" == fn)
+			{
+				if ((dtype_arg1 == "int") && (dtype_arg2 == "int"))
+					result = std::to_string(m_arithmetic.Multiply(stoi(arg1), stoi(arg2)));
+				if ((dtype_arg1 == "int") && (dtype_arg2 == "float"))
+					result = std::to_string(m_arithmetic.Multiply(stoi(arg1), stof(arg2)));
+				if ((dtype_arg1 == "float") && (dtype_arg2 == "int"))
+					result = std::to_string(m_arithmetic.Multiply(stof(arg1), stoi(arg2)));
+				if ((dtype_arg1 == "float") && (dtype_arg2 == "float"))
+					result = std::to_string(m_arithmetic.Multiply(stof(arg1), stof(arg2)));
+				if ((dtype_arg1 == "double") && (dtype_arg2 == "int"))
+					result = std::to_string(m_arithmetic.Multiply(stod(arg1), stoi(arg2)));
+				if ((dtype_arg1 == "int") && (dtype_arg2 == "double"))
+					result = std::to_string(m_arithmetic.Multiply(stoi(arg1), stod(arg2)));
+				if ((dtype_arg1 == "double") && (dtype_arg2 == "double"))
+					result = std::to_string(m_arithmetic.Multiply(stod(arg1), stod(arg2)));
+				if ((dtype_arg1 == "float") && (dtype_arg2 == "double"))
+					result = std::to_string(m_arithmetic.Multiply(stof(arg1), stod(arg2)));
+				if ((dtype_arg1 == "double") && (dtype_arg2 == "float"))
+					result = std::to_string(m_arithmetic.Multiply(stod(arg1), stof(arg2)));
+			}
+			else if ("divide" == fn)
+			{
+				if ((dtype_arg1 == "int") && (dtype_arg2 == "int"))
+					result = std::to_string(m_arithmetic.Divide(stoi(arg1), stoi(arg2)));
+				if ((dtype_arg1 == "int") && (dtype_arg2 == "float"))
+					result = std::to_string(m_arithmetic.Divide(stoi(arg1), stof(arg2)));
+				if ((dtype_arg1 == "float") && (dtype_arg2 == "int"))
+					result = std::to_string(m_arithmetic.Divide(stof(arg1), stoi(arg2)));
+				if ((dtype_arg1 == "float") && (dtype_arg2 == "float"))
+					result = std::to_string(m_arithmetic.Divide(stof(arg1), stof(arg2)));
+				if ((dtype_arg1 == "double") && (dtype_arg2 == "int"))
+					result = std::to_string(m_arithmetic.Divide(stod(arg1), stoi(arg2)));
+				if ((dtype_arg1 == "int") && (dtype_arg2 == "double"))
+					result = std::to_string(m_arithmetic.Divide(stoi(arg1), stod(arg2)));
+				if ((dtype_arg1 == "double") && (dtype_arg2 == "double"))
+					result = std::to_string(m_arithmetic.Divide(stod(arg1), stod(arg2)));
+				if ((dtype_arg1 == "float") && (dtype_arg2 == "double"))
+					result = std::to_string(m_arithmetic.Divide(stof(arg1), stod(arg2)));
+				if ((dtype_arg1 == "double") && (dtype_arg2 == "float"))
+					result = std::to_string(m_arithmetic.Divide(stod(arg1), stof(arg2)));
+			}
 		}
 		break;	
 	default:
