@@ -380,8 +380,8 @@ void SubscriberMain(TestUtility* s)
     
 	int argc = 6;
 	int columns;
-	//char *argv[] = {"Dummy", "subscriber", "-a", "10.10.196.130", "-p", "5100"};
-	char *argv[] = {"Dummy", "subscriber", "-a", "192.168.43.144", "-p", "5000"};
+	char *argv[] = {"Dummy", "subscriber", "-a", "10.10.196.130", "-p", "5100"};
+	//char *argv[] = {"Dummy", "subscriber", "-a", "192.168.43.144", "-p", "5000"};
 	LOG_INFO("Starting subscriber.\n"); 
     	int samples = 10;
 
