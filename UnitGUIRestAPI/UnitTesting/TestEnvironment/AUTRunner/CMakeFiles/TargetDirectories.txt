@@ -1,3 +1,0 @@
-/home/sachin/dfiles/dockerJenkins/UnitGUIRestAPI/UnitTesting/TestEnvironment/AUTRunner/CMakeFiles/rebuild_cache.dir
-/home/sachin/dfiles/dockerJenkins/UnitGUIRestAPI/UnitTesting/TestEnvironment/AUTRunner/CMakeFiles/edit_cache.dir
-/home/sachin/dfiles/dockerJenkins/UnitGUIRestAPI/UnitTesting/TestEnvironment/AUTRunner/CMakeFiles/AUT_Exec.dir
