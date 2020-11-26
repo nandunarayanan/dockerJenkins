@@ -11,7 +11,7 @@ extern std::string filename;
 TEST(CSV_Test, CSV_Test)
 {
 	{
-		filename = s1.getCsvFilePath("file2");
+		filename = s1.getCsvFilePath("file1");
 		csvTestApiDDS(1);
 		std::cout<<"Inside TEST"<<endl;
 	}
