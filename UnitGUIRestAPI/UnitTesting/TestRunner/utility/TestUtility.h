@@ -60,7 +60,7 @@ using namespace std;
              static ConfigReader* getInstance();
 
              // Parse the config file.
-             bool parseFile(std::string fileName = "/home/sachin/dfiles/dockerJenkins/UnitGUIRestAPI/UnitTesting/TestRunner/configuration/ConfigurationFile");
+             bool parseFile(std::string fileName = "/src/jenkinsDocker/UnitGUIRestAPI/UnitTesting/TestRunner/configuration/ConfigurationFile");
 
              // Overloaded getValue() function.
              // Value of the tag in cofiguration file could be
