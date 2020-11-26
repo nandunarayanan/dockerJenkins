@@ -1,5 +1,5 @@
 /**
- * File Name      : ServerUtility.cpp
+ * File Name      : TestUtility.cpp
  *  
  * Description    : This is the file is responsible all the utility related
 		     task of the Unit & class level testing.
@@ -320,7 +320,7 @@ void TestUtility::readCSV(std::string filename)
         std::string tmp,tmp2,r_dtype;
         char delim = ';'; 
 	bool result = getFileContent(filename, vecOfStr);
-	//std::cout<<result<<endl;
+	std::cout<<"result "<<result<<endl;
 	
 	if(result)
     	{
