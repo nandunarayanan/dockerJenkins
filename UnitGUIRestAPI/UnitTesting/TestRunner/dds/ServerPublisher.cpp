@@ -421,7 +421,8 @@ void PublisherMain(TestUtility* s)
 {
 int argc = 6;
 int columns;
-char *argv[] = {"Dummy", "publisher", "-a", "192.168.43.144", "-p", "5100"};
+//char *argv[] = {"Dummy", "publisher", "-a", "192.168.43.144", "-p", "5100"};
+char *argv[] = {"Dummy", "publisher", "-a", "10.10.196.129", "-p", "5100"};
 
 
 #if defined(_WIN32)
