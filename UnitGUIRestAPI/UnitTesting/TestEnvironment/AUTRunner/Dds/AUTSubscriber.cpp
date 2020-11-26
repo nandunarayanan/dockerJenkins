@@ -368,8 +368,8 @@ void SubscriberMain(AUTUtility* c)
 {
 	int argc = 6;
 	int columns;
-	//char *argv[] = {"Dummy", "subscriber", "-a", "10.10.196.129", "-p", "5100"};
-	char *argv[] = {"Dummy", "subscriber", "-a", "192.168.43.144", "-p", "5100"};
+	char *argv[] = {"Dummy", "subscriber", "-a", "10.10.196.129", "-p", "5100"};
+	//char *argv[] = {"Dummy", "subscriber", "-a", "192.168.43.144", "-p", "5100"};
 
     std::cout << "Starting subscriber." << std::endl;
     int samples = 10;
