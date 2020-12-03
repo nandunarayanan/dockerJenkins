@@ -8,7 +8,7 @@
 #define TESTING 1
 
 #include "hospitalmanagement.h"
-#include "../test/ClassTest.h"
+#include "../test_scripts/ClassTest.h"
 
 using namespace std;
 
