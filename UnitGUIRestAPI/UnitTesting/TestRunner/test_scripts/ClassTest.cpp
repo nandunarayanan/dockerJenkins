@@ -3,6 +3,7 @@
 #include "ClassTest.h"
 #include "../src/hospitalmanagement.h"
 #include "../src/hospitalmanagement.cpp"
+#include "TestMain.h"
 
 
 
