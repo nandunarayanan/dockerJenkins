@@ -3,7 +3,7 @@
 #include "../utility/TestUtility.h"
 #include "TestMain.h"
 
-
+extern TestUtility s1;
 
 class DdsAPI_Test : public ::testing::Test {
  protected:
@@ -17,7 +17,7 @@ class DdsAPI_Test : public ::testing::Test {
     //
     //delete (o_doctor);
   }
-  extern TestUtility s1;
+  
   std::string filename;
   
   
