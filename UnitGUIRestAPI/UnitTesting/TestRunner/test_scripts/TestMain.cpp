@@ -27,7 +27,7 @@ using namespace eprosima;
 using namespace fastrtps;
 using namespace rtps;
 
-//TestUtility s1;
+TestUtility s1;
 //std::string filename;
 
  /** 
