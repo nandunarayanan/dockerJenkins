@@ -7,6 +7,7 @@
 #include<string>
 #include<stdlib.h>
 #include<stdio.h>
+#include "../logger/Logger.h"
 
 using namespace std;
 
