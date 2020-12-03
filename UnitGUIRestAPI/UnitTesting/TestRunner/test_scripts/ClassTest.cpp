@@ -1,3 +1,6 @@
+#ifndef CLASS_TEST
+#define CLASS_TEST
+
 //#include <limits.h>
 #include <gtest/gtest.h>
 #include "ClassTest.h"
@@ -198,3 +201,9 @@ TEST_F(PasswordTest,VerifyPassword_false)
 	cout<<"Inside Test Password"<<endl;
 	ASSERT_EQ(0,pwd.verifyPassword());
 }
+
+
+
+
+
+#endif
