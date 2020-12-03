@@ -7,7 +7,7 @@
 extern TestUtility s1;
 extern std::string filename;
     
-
+/*
 TEST(DdsAPI_Test, CSVReadType_1)
 {
 	{
@@ -20,7 +20,7 @@ TEST(DdsAPI_Test, CSVReadType_1)
 		
 	}
 }
-
+*/
 TEST(DdsAPI_Test, CSVReadType_2)
 {
 	{
