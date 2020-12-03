@@ -1,3 +1,6 @@
+#ifndef TEST_UTILITY_H
+#define TEST_UTILITY_H
+
 /*!
  * @file TestUtility.h
  * This header file contains the declaration of Utility functions required for server.
@@ -209,3 +212,6 @@ void SubscriberMain(TestUtility* s);
  * @param s ServerUtility class pointer
  */
 void PublisherMain(TestUtility* s);
+
+
+#endif
