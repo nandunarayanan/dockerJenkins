@@ -5,11 +5,28 @@
 
 
 
-extern TestUtility s1;
-std::string filename;
+class DdsAPI_Test : public ::testing::Test {
+ protected:
+  virtual void SetUp() {
+    }
+  
+
+  virtual void TearDown() {
+    // Code here will be called immediately after each test
+    // (right before the destructor).
+    //
+    //delete (o_doctor);
+  }
+  extern TestUtility s1;
+  std::string filename;
+  
+  
+};
+
+
     
 
-TEST(DdsAPI_Test, CSVReadType_1)
+TEST_F(DdsAPI_Test, CSVReadType_1)
 {
 	{
 		filename = s1.getCsvFilePath("file1");
@@ -22,7 +39,7 @@ TEST(DdsAPI_Test, CSVReadType_1)
 	}
 }
 
-TEST(DdsAPI_Test, CSVReadType_2)
+TEST_F(DdsAPI_Test, CSVReadType_2)
 {
 	{
 		filename = s1.getCsvFilePath("file2");
