@@ -5,7 +5,7 @@
 
 
 
-TestUtility s;
+extern TestUtility s1;
 std::string filename;
     
 
