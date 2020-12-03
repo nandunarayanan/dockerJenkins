@@ -20,7 +20,7 @@
 #include <fastrtps/log/Log.h>
 #include "../dds/optionparser.h"
 #include "../logger/Logger.h"
-#include "ClassTest.cpp"
+//#include "ClassTest.cpp"
 
 using namespace std;
 using namespace CPlusPlusLogging;
