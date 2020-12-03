@@ -104,36 +104,29 @@ std::string Api::Run(std::string testcase)
 		{
 			if (s >> fn)
 			{
-				if (s >> returnType)
+				if (s >> arg1)
 				{
-					if (s >> arg1)
+					count++;
+					if (s >> arg2)
 					{
 						count++;
-						if (s >> arg2)
+						if (s >> arg3)
 						{
 							count++;
-							if (s >> arg3)
-							{
-								count++;
-							}
-							else
-							{
-								std::cout << "Invalid arg3" << std::endl;
-							}
 						}
 						else
 						{
-							std::cout << "Invalid arg2" << std::endl;
+							std::cout << "Invalid arg3" << std::endl;
 						}
 					}
 					else
 					{
-						std::cout << "Invalid arg1" << std::endl;
+						std::cout << "Invalid arg2" << std::endl;
 					}
 				}
 				else
 				{
-					std::cout << "Invalid type" << std::endl;
+					std::cout << "Invalid arg1" << std::endl;
 				}
 			}
 			else
@@ -168,19 +161,27 @@ std::string Api::Run(std::string testcase)
 								}
 								else
 								{
-									std::cout << "Invalid arg2" << std::endl;
+									std::cout << "Invalid arg3 type" << std::endl;
 								}
+							}
+							else
+							{
+								std::cout << "Invalid arg2" << std::endl;
 							}
 						}
 						else
 						{
-							std::cout << "Invalid arg1" << std::endl;
+							std::cout << "Invalid arg2 type" << std::endl;
 						}
+					}
+					else
+					{	
+						std::cout << "Invalid arg1" << std::endl;
 					}
 				}
 				else
 				{
-					std::cout << "Invalid return type" << std::endl;
+					std::cout << "Invalid arg1 type" << std::endl;
 				}
 			}
 			else
