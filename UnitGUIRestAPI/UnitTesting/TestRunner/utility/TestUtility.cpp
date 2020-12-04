@@ -313,6 +313,7 @@ string TestUtility::evaluvateTestcase(string msg)
   * 
   * 
   */
+/*
 void TestUtility::readCSV(std::string filename)
 {
     	LOG_DEBUG("Came @ CSV_Test: ");
@@ -411,7 +412,7 @@ void TestUtility::readCSV(std::string filename)
 	}
 }
 
-
+*/
  /** 
   * 
   *Function Name : getFileContent
