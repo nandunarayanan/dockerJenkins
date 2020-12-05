@@ -27,17 +27,17 @@ class DoctorTest : public ::testing::Test
 	virtual void SetUp() 
 	{
 		  s -> setD_spec(0); //Setting default value before starting the test.
-		  words1.clear(); //clear the vector data
-		  words.clear();
+		  
 	}
 
 	virtual void TearDown()
 	{  
 		 s -> setD_spec(0); //Resetting the value to default after test
 		 //read_csv::clear() ; //clear the vector data
-		 words1.clear(); //clear the vector data
-		 words.clear();
+		 
 	}
+	words1.clear(); //clear the vector data
+	words.clear();
 	read_csv.clear();
 	doctor d;
 	std::string filename;
@@ -148,16 +148,16 @@ class PatientTest : public ::testing::Test
 	{
 		s -> setP_dep(0); //Setting the value to default before test
 		//read_csv::clear() ; //clear the vector data
-		words1.clear(); //clear the vector data
-		  words.clear();
+		
 	}
 	virtual void TearDown() 
 	{
 		s -> setP_dep(0); //resetting the value to default after the test
 		//read_csv::clear() ; //clear the vector data
-		words1.clear(); //clear the vector data
-		  words.clear();
+		
 	}
+	words1.clear(); //clear the vector data
+	words.clear();
 	read_csv.clear();
 	patient p;	
 	std::string filename;
