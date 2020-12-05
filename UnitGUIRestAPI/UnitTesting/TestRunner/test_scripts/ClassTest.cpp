@@ -123,7 +123,7 @@ TEST_F(DoctorTest,getspec_csv)
 
 	for(int i=0;i<words1.size();i++)
 	{	
-		s -> setD_spec(stoi(read_csv[i]));    
+		s -> setD_spec(std::stoi(read_csv[i]));    
     		EXPECT_EQ(words1[i], d.getSpec());
  	}
 }
@@ -237,7 +237,7 @@ TEST_F(PatientTest,csvread_dep)
 
 	for(int i=0;i<words1.size();i++)
 	{	
-		s -> setP_dep(stoi(read_csv[i]));    
+		s -> setP_dep(std::stoi(read_csv[i]));    
     		EXPECT_EQ(words1[i], p.getDept());
  	}
 }
