@@ -179,7 +179,7 @@ bool ConfigReader::parseFile(string fileName)
 		std::map<std::string, std::string>::iterator itr = m_ConfigSettingMap.find(tag);
 		if(itr != m_ConfigSettingMap.end())
 		{
-			m_ConfigSettingMap.erase(tag)
+			m_ConfigSettingMap.erase(tag);
 		}
 
 		m_ConfigSettingMap.insert(std::pair<string, string>(tag, value));
