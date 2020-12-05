@@ -5,6 +5,7 @@
 
 extern TestUtility s1;
 
+
 class DdsAPI_Test : public ::testing::Test {
  protected:
   virtual void SetUp() {
@@ -30,9 +31,11 @@ TEST_F(DdsAPI_Test, CSVReadType_1)
 {
 	{
 		filename = s1.getCsvFilePath("file1");
+		std::cout<<"filename is : "<<filename<<endl;
 		CsvReader(filename);
 		for(int ab =0; ab<words.size();ab++)
 		{
+			std::cout<<words[ab]<<"The read value"<<endl;
 			ASSERT_EQ(words1[ab], s1.evaluvateTestcase(words[ab]));
 		}
 		

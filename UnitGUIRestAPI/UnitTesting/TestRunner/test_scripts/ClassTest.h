@@ -1,6 +1,9 @@
 #ifndef CLASSTEST_H
 #define CLASSTEST_H
 
+
+#define TESTING 1
+
 #include<iostream>
 #include<fstream>
 #include<iomanip>
