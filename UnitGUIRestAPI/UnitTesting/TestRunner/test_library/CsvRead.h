@@ -3,8 +3,9 @@
 
 #include "../test_scripts/TestMain.h"
 
-extern vector<string> input;
-extern vector<string> output;
+extern vector<string> words;
+extern vector<string> words1;
+extern vector<string> read_csv;
 
 
 void CsvReader(std::string filename);
