@@ -18,7 +18,9 @@ class DdsAPI_Test : public ::testing::Test {
     //
     //delete (o_doctor);
   }
-  
+  words1.clear();
+  words.clear();
+
   std::string filename;
   
   
