@@ -36,9 +36,9 @@ class DoctorTest : public ::testing::Test
 		 //read_csv::clear() ; //clear the vector data
 		 
 	}
-	words1.clear(); //clear the vector data
-	words.clear();
-	read_csv.clear();
+	//words1.clear(); //clear the vector data
+	//words.clear();
+	//read_csv.clear();
 	doctor d;
 	std::string filename;
 };
@@ -157,9 +157,9 @@ class PatientTest : public ::testing::Test
 		//read_csv::clear() ; //clear the vector data
 		
 	}
-	words1.clear(); //clear the vector data
-	words.clear();
-	read_csv.clear();
+	//words1.clear(); //clear the vector data
+	//words.clear();
+	//read_csv.clear();
 	patient p;	
 	std::string filename;
 };
