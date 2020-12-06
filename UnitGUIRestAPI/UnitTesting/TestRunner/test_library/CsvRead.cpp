@@ -37,6 +37,9 @@ bool getFileContent(std::string fileName, std::vector<std::string> & vecOfStrs)
 
 void CsvReader(std::string filename)
 {
+	words.clear();
+	words1.clear();
+	read_csv.clear();
 	std::vector<std::string> vecOfStr;
 	std::string tmp,tmp2,r_dtype,input;
 	char delim = ';'; 
