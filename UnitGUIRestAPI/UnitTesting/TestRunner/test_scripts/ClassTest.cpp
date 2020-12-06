@@ -130,8 +130,8 @@ TEST_F(DoctorTest,getspec_csv)
 	for(int i=0;i<words1.size();i++)
 	{
 		std::cout<<"words1 vector : "<<words1[i]<<endl;
-		//s -> setD_spec(std::stoi(read_csv[i]));    
-    		//EXPECT_EQ(words1[i], d.getSpec());
+		s -> setD_spec(std::stoi(read_csv[i]));    
+    		EXPECT_EQ(words1[i], d.getSpec());
  	}
 }
 /******************************************************************************
