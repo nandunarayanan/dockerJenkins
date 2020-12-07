@@ -1,3 +1,13 @@
+/******************************************************************************
+ * File Name      : hospitalmanagement.cpp
+ *  
+ * Description    : This is the file responsible for all the operstions related to 
+ *				    Hospital Management Database.
+ *
+ * Modifiled Date : 07/12/2020
+ *
+ *****************************************************************************/
+#include"hospitalmanagement.h" 
 using namespace std;
 
 /*****************function declarations***************************************/
@@ -6,7 +16,6 @@ void getDoctorDatabase();
 void getPatientDatabase();		
 void getBedDatabase();
 void getPatientReport();
-
 /***************Declaring Test Points*****************************************/
 #ifdef TESTING  
 
@@ -18,63 +27,71 @@ Testpoints *s = s->getInstance();
 * Class Name  : password 
 *
 * Description : This class is used to declare the attributes and methods used 
-*		in receiving, verifying and keeping the password protected. 		    
+*				in receiving, verifying and keeping the password protected. 		    
 * 
 ******************************************************************************/
-class password{
-	
+class password
+{	
 	public:
 	string pass;
-	void getPassword(){
+	void getPassword()
+	{
     	cout<<"\nChoose a password for your system:"<<endl;
     
 #ifndef TESTING
     	cin>>pass;
 #endif
-    	}
+    }
     
 	int verifyPassword()
 	{
-	string x;
-	cout<<"\nEnter the password:"<<endl;
+		string x;
+		cout<<"\nEnter the password:"<<endl;
 #ifndef TESTING
-	cin>>x;
+		cin>>x;
 	
 #endif
 #ifdef TESTING
-	//s->setP_x("sachin");
-	x=s->getP_x();
-	pass= s->getP_pass();
-	cout<<x<<endl;
+		x=s->getP_x();
+		pass= s->getP_pass();
+		cout<<x<<endl;
 #endif	
-	if (x==pass)
-	return 1;
-	else 
-	return 0;	 	
-   }
-    
-    void passwordProtect(){
+		if (x==pass)
+			return 1;
+		else 
+			return 0;	 	
+    }    
+    void passwordProtect()
+    {
+#ifndef TESTING
     	int veri=verifyPassword();
-	
-	 if(veri==1){
-	 	cout<<"\nAccess Granted!"<<endl;
-	 }
-	 else 
-	 {
-		cout<<right<<setw(40)<<setfill(' ')<<"\nAccess Denied!\n\nSystem will shut down\n\nPlease come back again."<<endl;
-	 	exit(0);
-	 }
-}
+#endif
+#ifdef TESTING
+		int veri = s -> getPass_veri();
+#endif
+		if(veri==1)
+		{
+			cout<<"\nAccess Granted!"<<endl;
+		}
+		else 
+		{
+			cout<<right<<setw(40)<<setfill(' ')
+			<<"\nAccess Denied!\n\nSystem will shut down\n\nPlease come back again."
+			<<endl;
+		 	exit(0);
+		}
+	}
 };
 /****************************************************************************** 
 * Class Name  : doctor 
 *
 * Description : This class is used to declare the attributes and methods used 
-*		maintain doctor database and displaying the reqested doctor 
-*		information 		    
+*				maintain doctor database and displaying the reqested doctor 
+*				information 		    
 * 
 ******************************************************************************/
-class doctor{
+class doctor
+{
 	public:
 	string d_fname,d_lname;
 	int d_ID, d_age,experience,d_totalno;
@@ -92,14 +109,15 @@ class doctor{
 *Function Name    :string getSpec()
 *
 *Description      : This is the methos of class doctor. It is used to get the 
-*		    information about user's choice of department	 		   
+*				    information about user's choice of department	 		   
 * 
 *Input Parameters : None
 * 
 * Return Value    : string
 * 
 ******************************************************************************/
-string doctor::getSpec(){
+string doctor::getSpec()
+{
  	string sp;
 	cout<<"1.GENERAL_MEDICINE"<<endl;
 	cout<<"2.NEUROLOGY"<<endl;
@@ -108,119 +126,118 @@ string doctor::getSpec(){
 	cout<<"5.GASTROENTEROLOGY"<<endl;
 	cout<<"6.GYNAECOLOGY "<<endl;
 	int spec;
-/*****************Avoiding Standard Input for Testing*************************/	
+/* Avoiding Standard Input for Testing */	
 #ifndef TESTING	
-	
-	cin>>s;
+	cin>>spec;
 #endif
-/*****************Setting the test point used while Testing*******************/
+/* Setting the test point used while Testing */
 #ifdef TESTING
 	spec = s->getD_spec();
 #endif
-		switch(spec){
-		case 1:{
-			sp= "GENERAL_MEDICINE";
-			break;
-		}
-		case 2:{
-			sp="NEUROLOGY";
-			break;
-		}
-		case 3:{
-		    sp="ONCOLOGY";
-			break;
-		}
-		case 4:{
-			sp= "HAEMATOLOGY";
-			break;
-		}
-		case 5:{
-			sp= "GASTROENTEROLOGY";
-			break;
-		}
-		case 6:{
-			sp= "GYNAECOLOGY";
-			break;
-		}
+	switch(spec)
+	{
+		case 1:	{
+					sp="GENERAL_MEDICINE";
+					break;
+				}
+		case 2:	{
+					sp="NEUROLOGY";
+					break;
+				}
+		case 3:	{
+		    		sp="ONCOLOGY";
+					break;
+				}
+		case 4:	{
+					sp="HAEMATOLOGY";
+					break;
+				}
+		case 5:	{
+					sp="GASTROENTEROLOGY";
+					break;
+				}
+		case 6:	{
+					sp="GYNAECOLOGY";
+					break;
+				}
 		default:{
-			cout<<"\nCome on!Enter a valid option."<<endl;
+					cout<<"\nCome on!Enter a valid option."<<endl;
 			
-		}
+				}
 	
 	}
-		return sp;
-	
+	return sp;
 }
 /******************************************************************************
 *Function Name    : void addDoc()
 *
 *Description      : This function is used to create new doctor profile in 
-*		     hospital database.	 		   
+*				     hospital database.	 		   
 * 
 *Input Parameters : None
 * 
 * Return Value    : None
 * 
 ******************************************************************************/
-void addDoc(){
-		doctor d;
-		cout<<"Fill up the following details"<<endl;
-		cout<<"ID:"<<endl;
-		cin>>d.d_ID;
-   		cout<<"First Name:"<<endl;
-   		cin>>d.d_fname;
-   		cout<<"Last Name:"<<endl;
-   		cin>>d.d_lname;
-   		cout<<"Age:"<<endl;
-   		cin>>d.d_age;
-   		cout<<"Choose Qualification among the following:\n1.MBBS\n2.MD"
-   		<<endl;
-   		int q;
-   		cin>>q;
-   		
-   		if(q==1)
-   			d.qual="MBBS";
-		else 
-			d.qual="MD";
-			
-		cout<<"Choose Specialization among the following:"<<endl;
-		string spec=d.getSpec();
-		cout<<"Experience (in Years):"<<endl;
-		cin>>d.experience;
-		cout<<"City:"<<endl;
-		cin>>d.d_city;
-		system("cls");
-		fstream fileObj;   
-		fileObj.open("doctor.txt",ios::app );
-
-
-		fileObj.seekp (0, ios::end); fileObj<<d.d_ID<<endl<<d.d_fname
-		<<endl<<d.d_lname<<endl<<d.d_age<<endl<<d.qual<<endl<<spec<<endl
-		<<d.experience<<endl<<d.d_city<<endl;
-		fileObj.close();
-		cout<<"\n\t\tNew Doctor profile created successfully!"<<endl<<endl<<endl;
-		cout<<"\n\n\n\nEnter 1 to return to Doctor Database\nEnter 2 to Exit."<<endl;
-		int c;
-		cin>>c;
-		if(c==1){
-			  system("cls");
-			  getDoctorDatabase();
-		}
-	  	else
-	  		exit(0);		 
+void addDoc()
+{
+	doctor d;
+	cout<<"Fill up the following details"<<endl;
+	cout<<"ID:"<<endl;
+	cin>>d.d_ID;
+	cout<<"First Name:"<<endl;
+	cin>>d.d_fname;
+	cout<<"Last Name:"<<endl;
+	cin>>d.d_lname;
+	cout<<"Age:"<<endl;
+	cin>>d.d_age;
+	cout<<"Choose Qualification among the following:\n1.MBBS\n2.MD"
+	<<endl;
+	int q;
+	cin>>q;  		
+   	if(q==1)
+   		d.qual="MBBS";
+	else 
+		d.qual="MD";		
+	cout<<"Choose Specialization among the following:"<<endl;
+	string spec=d.getSpec();
+	cout<<"Experience (in Years):"<<endl;
+	cin>>d.experience;
+	cout<<"City:"<<endl;
+	cin>>d.d_city;
+	system("cls");
+	fstream fileObj;   
+	fileObj.open("doctor.txt",ios::app );
+	fileObj.seekp (0, ios::end); fileObj<<d.d_ID<<endl<<d.d_fname
+	<<endl<<d.d_lname<<endl<<d.d_age<<endl<<d.qual<<endl<<spec<<endl
+	<<d.experience<<endl<<d.d_city<<endl;
+	fileObj.close();
+	cout<<"\n\t\tNew Doctor profile created successfully!"<<endl<<endl<<endl;
+	cout<<"\n\n\n\nEnter 1 to return to Doctor Database\nEnter 2 to Exit."
+	<<endl;
+	int c;
+	cin>>c;
+	if(c==1)
+	{
+		  system("cls");
+		  getDoctorDatabase();
+	}
+	else
+		exit(0);		 
 }
 /******************************************************************************
 *Function Name    : void editDoc(doctor &docobj)
 *
 *Description      : This function is used to edit doctor profile in 
-*		     hospital database.	 		   
+*				     hospital database.	 		   
 * 
 *Input Parameters : doctor &docobj
 * 
 * Return Value    : void
 * 
 ******************************************************************************/
-void editDoc(doctor &docobj){
+void editDoc(doctor &docobj)
+{
 	string x;
 	cout<<"\nEnter the ID of the Doctor whose profile you want to Edit:"<<endl;
 	cin>>x;
@@ -230,7 +247,8 @@ void editDoc(doctor &docobj){
 	string ID,fname,lname,ci,qua,spe;
 	while(fileObj>>ID>>fname>>lname>>age>>qua>>spe>>exp>>ci)
 	{
-		if(ID==x){
+		if(ID==x)
+		{
 			cout<<"\n\n1.ID:"<<ID<<endl<<"2.First Name:"<<fname<<endl
 			<<"3.Last Name:"<<lname<<endl<<"4.Age:"<<age<<endl
 			<<"5.Qualification:"<<qua<<endl<<"6.Specialization:"
@@ -239,116 +257,121 @@ void editDoc(doctor &docobj){
 			break;
 		}
 	}
-	
 	fileObj.close();
-	if(count==0){
+	if(count==0)
+	{
 		cout<<"\nNo matching records found!"<<endl;
 		exit(0);
 	}
-/****************************datatransfer begins******************************/
+	/* datatransfer begins */
 	fstream file("doctor.txt");
 	file.seekg (0, ios::beg);
 	file.seekg(0);
 	string line;
-    	ofstream tempObj;
+    ofstream tempObj;
 	tempObj.open("copy.txt");
-    	tempObj.seekp(0);
+    tempObj.seekp(0);
   	int skip = 0;
   	int age1,exp1;
 	string fname1,lname1,ci1,qua1,spe1;
 	file.seekg(0);file.seekg(0,ios::cur); //setting the pointer to beginning of file
 	while(file>>line>>fname1>>lname1>>age1>>qua1>>spe1>>exp1>>ci1)
 	{
-		if(line!=x){
-			tempObj<<line<<endl<<fname1<<endl<<lname1<<endl<<age1<<endl<<qua1<<endl<<spe1<<endl<<exp1<<endl<<ci1<<endl;
+		if(line!=x)
+		{
+			tempObj<<line<<endl<<fname1<<endl<<lname1<<endl<<age1<<endl<<qua1
+			<<endl<<spe1<<endl<<exp1<<endl<<ci1<<endl;
 		}			
 	}
 
-	  file.close();
+	file.close();
   	tempObj.close();
   	remove("doctor.txt");
   	int result;
   	char oldname[] ="copy.txt";
   	char newname[] ="doctor.txt";
   	result= rename( oldname , newname );
-/*****************************datatransfer ends*******************************/
+	/* datatransfer ends */
 	int edit;
 	cout<<"Enter number corresponding to the Field you want to Edit:"<<endl;
 	cin>>edit;
 	cout<<endl;
 	switch(edit)
 	{
-		case 1:{
-				cout<<"ID"<<endl;
-				cin>>ID;
-				break;
-			}
-		case 2:{
-				cout<<"First Name:"<<endl;
-				cin>>fname;		
-				break;
-			}
-		case 3:{
-				cout<<"Last Name:"<<endl;
-				cin>>lname;
-				break;
-			}
-		case 4:{
-				cout<<"Age:"<<endl;
-				cin>>age;
-				break;
-			}
-		case 5:{
-				cout<<"Choose Qualification among the following:\n1.MBBS\n2.MD"<<endl;
-   				int q;
-   				cin>>q;
-   				if(q=1){
-		   			qua="MBBS";
-		   		}
-				else {
-					qua="MD";
+		case 1:	{
+					cout<<"ID"<<endl;
+					cin>>ID;
+					break;
 				}
-				break;
-			}
-		case 6:{
-				system("cls");
-				spe=docobj.getSpec();
-				break;
-			}
-		case 7:{
-				cout<<"Experience:"<<endl;
-				cin>>exp;
-				break;
-			}
-		case 8:{
-				cout<<"City:"<<endl;
-				cin>>ci;
-				break;
-			}
+		case 2:	{
+					cout<<"First Name:"<<endl;
+					cin>>fname;		
+					break;
+				}
+		case 3:	{
+					cout<<"Last Name:"<<endl;
+					cin>>lname;
+					break;
+				}
+		case 4:	{
+					cout<<"Age:"<<endl;
+					cin>>age;
+					break;
+				}
+		case 5:	{
+					cout<<"Choose Qualification among the following:\n1.MBBS\n2.MD"
+					<<endl;
+   					int q;
+   					cin>>q;
+   					if(q=1)
+   					{
+		   				qua="MBBS";
+		   			}
+					else 
+					{
+						qua="MD";
+					}
+					break;
+				}
+		case 6:	{
+					system("cls");
+					spe=docobj.getSpec();
+					break;
+				}
+		case 7:	{
+					cout<<"Experience:"<<endl;
+					cin>>exp;
+					break;
+				}
+		case 8:	{
+					cout<<"City:"<<endl;
+					cin>>ci;
+					break;
+				}
 		default:{
-				cout<<"Invalid Input!"<<endl;
-				exit(0);
-			}
+					cout<<"Invalid Input!"<<endl;
+					exit(0);
+				}
 	}
-
 	system("cls");
 	cout<<right<<setw(50)<<setfill(' ')<<"--Updated Profile--"<<endl<<endl;
 	cout<<"\n\n1.ID:"<<ID<<endl<<"2.FirstName:"<<fname<<endl<<"3.LastName:"
 	<<lname<<endl<<"4.Age:"<<age<<endl<<"5.Qualification:"<<qua<<endl
 	<<"6.Specialization:"<<spe<<endl<<"7.Experience:"<<exp<<endl<<"8.City:"
 	<<ci<<endl<<endl;
-	
-/***********************updated datatransfer**********************************/
+	/* updated datatransfer */
 	fstream newObj;	
 	newObj.open("doctor.txt", ios::app);
 	newObj.seekp (0, ios::end);
-	newObj<<ID<<endl<<fname<<endl<<lname<<endl<<age<<endl<<qua<<endl<<spe<<endl<<exp<<endl<<ci<<endl;
+	newObj<<ID<<endl<<fname<<endl<<lname<<endl<<age<<endl<<qua<<endl<<spe<<endl
+	<<exp<<endl<<ci<<endl;
 	newObj.close();
-/************************datatransfer completion******************************/
+	/* datatransfer completion */
 	cout<<"\n\nEnter 1 to return to Doctor Database\nEnter 2 to Exit."<<endl;
 	int c;
 	cin>>c;
-	if(c==1){
+	if(c==1)
+	{
 	  	system("cls");
 	  	getDoctorDatabase();
 	}
@@ -368,13 +391,14 @@ void editDoc(doctor &docobj){
 void displayDoc()
 {
 	int x;
-	cout<<"\n\nEnter the ID of the Doctor whose profile you want to display:"<<endl;
+	cout<<"\n\nEnter the ID of the Doctor whose profile you want to display:"
+	<<endl;
 	cin>>x;
 	ifstream file;file.open("doctor.txt",ios::out|ios::in);
 	file.seekg(0);
 	int ID,age,exp,count=0;
 	string fname,lname,ci,qua,spe;
-	while(file >> ID >> fname >> lname >>age >>qua >> spe >>exp >> ci) //!fileObj.eof()
+	while(file >> ID >> fname >> lname >>age >>qua >> spe >>exp >> ci)//!fileObj.eof()
 	{
 		if(ID==x)
 		{
@@ -408,7 +432,7 @@ void displayDoc()
 *Function Name    : void deleteDoc()
 *
 *Description      : This function is used to delete requested doctor profile 
-*		    from the hospital database.	 		   
+*				    from the hospital database.	 		   
 * 
 *Input Parameters : None
 * 
@@ -420,7 +444,9 @@ void deleteDoc()
 	string x;
 	cout<<"\nEnter the ID of the Doctor whose profile you want to Delete:"
 	<<endl;
+#ifndef TESTING
 	cin>>x;
+#endif
 	fstream fileObj("doctor.txt");
 	fileObj.seekg(0);
 	int age,exp,count=0;
@@ -444,20 +470,26 @@ void deleteDoc()
 		exit(0);
 	}
 	cout<<"Are you sure you want to delete this profile?\n1.YES\n2.NO"<<endl;
-	int n;cin>>n;
+	int n;
+#ifndef TESTING
+	cin>>n;
+#endif
+#ifdef TESTING
+	n=1;
+#endif
 	if(n==1)
 	{
 		fstream file("doctor.txt");
 		file.seekg (0, ios::beg);
 		file.seekg(0);
 		string line;
-	    	ofstream tempObj;
+	   	ofstream tempObj;
 		tempObj.open("copy.txt");
-	    	tempObj.seekp(0);
+	   	tempObj.seekp(0);
 	  	int skip = 0;
 	  	int age1,exp1;
 		string fname1,lname1,ci1,qua1,spe1;
-               /***********setting the pointer to beginning of file***********/
+        /* setting the pointer to beginning of file */
 		file.seekg(0);file.seekg(0,ios::cur); 
 		while(file>>line>>fname1>>lname1>>age1>>qua1>>spe1>>exp1>>ci1)
 		{
@@ -480,7 +512,12 @@ void deleteDoc()
 	}
 	cout<<"\n\nEnter 1 to return to Doctor Database\nEnter 2 to Exit."<<endl;
 	int c;
+#ifndef TESTING
 	cin>>c;
+#endif
+#ifdef TESTING
+	c = s -> getD_delete();
+#endif
 	if(c==1)
 	{
 		system("cls");
@@ -518,7 +555,7 @@ void dispDatabase()
 		"5.Qualification:"<<qua<<endl<<"6.Specialization:"<<spe<<endl
 		<<"7.Experience:"<<exp<<endl<<"8.City:"<<ci<<endl<<endl;
 	}
-	if(count==0)
+	if(count == 0)
 	{
 		cout<<"\nNo matching records found!"<<endl;
  	 	exit(0);
@@ -540,7 +577,7 @@ void dispDatabase()
 *Function Name    : void numberofDocs()
 *
 *Description      : This function is used to get the number of documents
-*		     hospital database functions.	 		   
+*				     hospital database functions.	 		   
 * 
 *Input Parameters : None
 * 
@@ -575,8 +612,8 @@ void numberofDocs()
 * Class Name  : patient 
 *
 * Description : This class is used to declare the attributes and methods used 
-*		maintain patient database and displaying the reqested patient 
-*		information 		    
+*				maintain patient database and displaying the reqested patient 
+*				information 		    
 * 
 ******************************************************************************/
 class patient
@@ -600,7 +637,7 @@ class patient
 *Function Name    : void getDept()
 *
 *Description      : This function is a method of class patient. It is used to get
-*		    the requested patient department from the hospital database.	 		   
+*				    the requested patient department from the hospital database.	 		   
 * 
 *Input Parameters : None
 * 
@@ -617,43 +654,43 @@ string patient::getDept()
 	cout<<"5.GASTROENTEROLOGY"<<endl;
 	cout<<"6.GYNAECOLOGY "<<endl<<endl;
 	int dep;
-	/************Avoiding standard input for testing ********************/
+	/* Avoiding standard input for testing */
 #ifndef TESTING
 	cin>>dep;
 #endif
-	/***********Adding Test point to use in test cases********************/
+	/* Adding Test point to use in test cases */
 #ifdef TESTING
 	dep = s -> getP_dep();
 #endif
 	switch(dep)
 	{	
-		case 1:{
-				sp= "GENERAL_MEDICINE";
-				break;
-			}
-		case 2:{
-				sp="NEUROLOGY";
-				break;
-			}
-		case 3:{
-				sp="ONCOLOGY";
-				break;
-			}
-		case 4:{
-				sp= "HAEMATOLOGY";
-				break;
-			}
-		case 5:{
-				sp= "GASTROENTEROLOGY";
-				break;
-			}
-		case 6:{
-				sp= "GYNAECOLOGY";
-				break;
-			}
+		case 1:	{
+					sp= "GENERAL_MEDICINE";
+					break;
+				}
+		case 2:	{
+					sp="NEUROLOGY";
+					break;
+				}
+		case 3:	{
+					sp="ONCOLOGY";
+					break;
+				}
+		case 4:	{
+					sp= "HAEMATOLOGY";
+					break;
+				}
+		case 5:	{
+					sp= "GASTROENTEROLOGY";
+					break;
+				}
+		case 6:	{
+					sp= "GYNAECOLOGY";
+					break;
+				}
 		default:{
-				cout<<"\nCome on!Enter a valid option."<<endl;	
-			}
+					cout<<"\nCome on!Enter a valid option."<<endl;	
+				}
 	}
 	return sp;
 }
@@ -661,7 +698,7 @@ string patient::getDept()
 *Function Name    : void getDoctor()
 *
 *Description      : This function is used to get
-*		    the information about the doctor from the hospital database.	 		   
+*				    the information about the doctor from the hospital database.	 		   
 * 
 *Input Parameters : None
 * 
@@ -676,7 +713,8 @@ void getDoctor()
 	dept=p.getDept();
 	fstream fileObj("doctor.txt");
 	fileObj.seekg(0);
-	cout<<"The doctors available with  "<<dept<<" specialization are:"<<endl<<endl;
+	cout<<"The doctors available with  "<<dept<<" specialization are:"<<endl
+	<<endl;
 	int age,exp,count=0;
 	string ID,fname,lname,ci,qua,spe;
 	while(fileObj>>ID>>fname>>lname>>age>>qua>>spe>>exp>>ci)
@@ -701,7 +739,8 @@ void getDoctor()
 	{
 		cout<<"No of doctors with "<<dept<<" specialization:"<<count<<endl;
 	}	
-	cout<<"\n\n\n\nEnter 1 to return to Patient Database\nEnter 2 to Exit."<<endl;
+	cout<<"\n\n\n\nEnter 1 to return to Patient Database\nEnter 2 to Exit."
+	<<endl;
 	int c;
 	cin>>c;
 	if(c==1)
@@ -718,7 +757,7 @@ void getDoctor()
 *Function Name    : void addPat()
 *
 *Description      : This function is used to add 
-*		    information about the patient in the hospital database.	 		   
+*				    information about the patient in the hospital database.	 		   
 * 
 *Input Parameters : None
 * 
@@ -756,7 +795,7 @@ void addPat()
 	system("cls");	
 	fstream patObj;   
 	patObj.open("patient.txt",ios::app );
-        patObj.seekp (0, ios::end);
+    patObj.seekp (0, ios::end);
 	patObj<<p.p_ID<<endl<<p.fname<<endl<<p.lname<<endl<<p.p_age<<
 	endl<<p.phnumber<<endl<<p.occupation<<endl<<p.p_city<<endl<<p.dis<<endl
 	<<p.addDate<<endl<<p.relDate<<endl<<p.bill<<endl<<dept<<endl;
@@ -779,7 +818,7 @@ void addPat()
 *Function Name    : void editPat(patient &pat)
 *
 *Description      : This function is used to edit 
-*		    patient profile in the hospital database.	 		   
+*				    patient profile in the hospital database.	 		   
 * 
 *Input Parameters : patient &pat
 * 
@@ -814,27 +853,26 @@ void editPat(patient &pat)
 			break;
 		}
 	}
-	
 	patObj.close();
 	if(count==0)
 	{
 		cout<<"\nNo matching records found!"<<endl;
 		exit(0);
 	}
-	
-	/******************datatransfer begins********************************/
+	/* datatransfer begins */
 	fstream file("patient.txt");
 	file.seekg (0, ios::beg);
 	file.seekg(0);
 	int line;
-    	ofstream tempObj;
+    ofstream tempObj;
 	tempObj.open("copy2.txt");
-    	tempObj.seekp(0);
+    tempObj.seekp(0);
   	int skip = 0;
   	string fname1,lname1,occupation1,p_city1,dis1,addDate1,relDate1,dept1;
 	int p_age1;
 	long double phnumber1,bill1;
-	file.seekg(0);file.seekg(0,ios::cur); //setting the pointer to beginning of file
+	/* setting the pointer to beginning of file */
+	file.seekg(0);file.seekg(0,ios::cur);
 	while(file>>line>>fname1>>lname1>>p_age1>>phnumber1>>occupation1
 	>>p_city1>>dis1>>addDate1>>relDate1>>bill1>>dept1)
 	{
@@ -853,77 +891,77 @@ void editPat(patient &pat)
   	char oldname[] ="copy2.txt";
   	char newname[] ="patient.txt";
   	result= rename( oldname , newname );
-	/*******************datatransfer ends*********************************/
+	/* datatransfer ends */
 	int edit;
-	cout<<"\nEnter number corresponding to the Field you want to Edit:"<<endl<<endl;
+	cout<<"\nEnter number corresponding to the Field you want to Edit:"<<endl
+	<<endl;
 	cin>>edit;
 	switch(edit)						
 	{
-		case 1:{
-				cout<<"ID"<<endl;
-				cin>>p_ID;
-				break;
-			}
-		case 2:{
-				cout<<"First Name:"<<endl;
-				cin>>fname;
-				break;
-			}
-		case 3:{
-				cout<<"Last Name:"<<endl;
-				cin>>lname;
-				break;
-			}
-		case 4:{
-				cout<<"Age:"<<endl;
-				cin>>p_age;
-				break;
-			}
-		case 5:{
-				cout<<"Phone No.:"<<endl;
-   				cin>>phnumber;
-				break;
-			}
-		case 6:{
-				cout<<"Occupation:"<<endl;
-				cin>>occupation;
-				break;
-			}
-		case 7:{
-				cout<<"City:"<<endl;
-				cin>>p_city;
-				break;
-			}
-		case 8:{
-				cout<<"Disease/Symptoms:"<<endl;
-				cin>>dis;
-				break;
-			}
-		case 9:{
-				cout<<"Admission date  (DD/MM/YYYY):"<<endl;
-				cin>>addDate;
-				break;
-			}
+		case 1:	{
+					cout<<"ID"<<endl;
+					cin>>p_ID;
+					break;
+				}
+		case 2:	{
+					cout<<"First Name:"<<endl;
+					cin>>fname;
+					break;
+				}
+		case 3:	{
+					cout<<"Last Name:"<<endl;
+					cin>>lname;
+					break;
+				}
+		case 4:	{
+					cout<<"Age:"<<endl;
+					cin>>p_age;
+					break;
+				}
+		case 5:	{
+					cout<<"Phone No.:"<<endl;
+   					cin>>phnumber;
+					break;
+				}
+		case 6:	{
+					cout<<"Occupation:"<<endl;
+					cin>>occupation;
+					break;
+				}
+		case 7:	{
+					cout<<"City:"<<endl;
+					cin>>p_city;
+					break;
+				}
+		case 8:	{
+					cout<<"Disease/Symptoms:"<<endl;
+					cin>>dis;
+					break;
+				}
+		case 9:	{
+					cout<<"Admission date  (DD/MM/YYYY):"<<endl;
+					cin>>addDate;
+					break;
+				}
 		case 10:{
-				cout<<"Release date  (DD/MM/YYYY):"<<endl;
-				cin>>relDate;
-			}
+					cout<<"Release date  (DD/MM/YYYY):"<<endl;
+					cin>>relDate;
+				}
 		case 11:{
-				cout<<"Total Bill generated:"<<endl;
-				cin>>bill;
-				break;
-			}
+					cout<<"Total Bill generated:"<<endl;
+					cin>>bill;
+					break;
+				}
 		case 12:{
-				cout<<"Kind of Specialization required:"<<endl;
-				dept=pat.getDept();
-				break;
-			}
+					cout<<"Kind of Specialization required:"<<endl;
+					dept=pat.getDept();
+					break;
+				}
 		default:{
-				cout<<"\nCome on!Enter a valid option."<<endl;
-				break;
-			}
+					cout<<"\nCome on!Enter a valid option."<<endl;
+					break;
+				}
 	}
-
 	system("cls");
 	cout<<right<<setw(50)<<setfill(' ')<<"--Updated Profile--"<<endl<<endl;
 	cout<<"1.ID:"<<p_ID<<endl<<"2.First Name:"<<fname<<endl<<"3.Last Name:"
@@ -933,8 +971,7 @@ void editPat(patient &pat)
 	<<addDate<<endl<<"10.Release date(DD/MM/YYYY):"<<relDate<<endl
 	<<"11.Total Bill generated:"<<bill<<endl<<"12.Kind of Specialization required:"
 	<<dept<<endl;
-	
-	/******************************updated datatransfer*******************/
+	/* updated datatransfer */
 	fstream newObj;	
 	newObj.open("patient.txt", ios::app);
 	newObj.seekp (0, ios::end);
@@ -942,7 +979,7 @@ void editPat(patient &pat)
 	<<endl<<occupation<<endl<<p_city<<endl<<dis<<endl<<addDate<<endl
 	<<relDate<<endl<<bill<<endl<<dept<<endl;
 	newObj.close();
-	 /**********************Data transfer completion**********************/
+	/* Data transfer completion */
 	cout<<"\n\nEnter 1 to return to Patient Database\nEnter 2 to Exit."<<endl;
 	int c;
 	cin>>c;
@@ -960,7 +997,7 @@ void editPat(patient &pat)
 *Function Name    : void displayPat()
 *
 *Description      : This function is used to display requested  
-*		    patient profile from the hospital database.	 		   
+*				    patient profile from the hospital database.	 		   
 * 
 *Input Parameters : None
 * 
@@ -1019,7 +1056,7 @@ void displayPat()
 *Function Name    : void deletePat()
 *
 *Description      : This function is used to delete requested  
-*		    patient profile from the hospital database.	 		   
+*				    patient profile from the hospital database.	 		   
 * 
 *Input Parameters : None
 * 
@@ -1069,15 +1106,16 @@ void deletePat()
 		file.seekg (0, ios::beg);
 		file.seekg(0);
 		int line;
-    		ofstream tempObj;
+    	ofstream tempObj;
 		tempObj.open("copy2.txt");
-    		tempObj.seekp(0);
+    	tempObj.seekp(0);
   		int skip = 0;
   		string fname1,lname1,occupation1,p_city1,dis1,addDate1,relDate1
   		,dept1;
 		int p_age1;
 		long double phnumber1,bill1;
-		file.seekg(0);file.seekg(0,ios::cur); //setting the pointer to beginning of file
+		/* setting the pointer to beginning of file */
+		file.seekg(0);file.seekg(0,ios::cur); 
 		while(file>>line>>fname1>>lname1>>p_age1>>phnumber1>>occupation1
 		>>p_city1>>dis1>>addDate1>>relDate1>>bill1>>dept1)
 		{
@@ -1116,7 +1154,7 @@ void deletePat()
 *Function Name    : void dispPatDatabase()
 *
 *Description      : This function is used to display  
-*		    patient database functions.	 		   
+*				    patient database functions.	 		   
 * 
 *Input Parameters : None
 * 
@@ -1170,7 +1208,7 @@ void dispPatDatabase()
 *Function Name    : void numberofPats()
 *
 *Description      : This function is used to get the number of   
-*		    patients from the database functions.	 		   
+*				    patients from the database functions.	 		   
 * 
 *Input Parameters : None
 * 
@@ -1209,10 +1247,11 @@ void numberofPats()
 * Class Name  : bed 
 *
 * Description : This class is used to declare the attributes and methods used 
-*		to provide the information related to bed availability in hospital 		    
+*				to provide the information related to bed availability in hospital 		    
 * 
 ******************************************************************************/
-class bed{
+class bed
+{
 	public:
 	int total=1000;
 	friend void getStatus();
@@ -1268,64 +1307,54 @@ class bed{
 * Return Value    : None
 * 
 ******************************************************************************/
- 
-  
- 
- 
-//the main function
-/*
-int main(){
+
+int main()
+{
 	password A;
 	A.getPassword();
-	
-	
-    system("cls");
-		
+    system("cls");		
 	cout<<endl;
-	cout<<right<<setw(60)<<setfill(' ')<<"WELCOME TO ST.MUNGO'S HOSPITAL MANAGEMENT SYSTEM "<<endl;
+	cout<<right<<setw(60)<<setfill(' ')
+	<<"WELCOME TO ST.MUNGO'S HOSPITAL MANAGEMENT SYSTEM "<<endl;
 	cout<<endl<<endl;
-	cout<<right<<setw(60)<<setfill(' ')<<"------------------------------------------------"<<endl;
-	
+	cout<<right<<setw(60)<<setfill(' ')
+	<<"------------------------------------------------"<<endl;
 	cout<<right<<setw(40)<<setfill(' ')<<"1.Main Menu"<<endl;
 	cout<<right<<setw(35)<<setfill(' ')<<"2.Exit"<<endl;
-	cout<<right<<setw(60)<<setfill(' ')<<"------------------------------------------------"<<endl<<endl;
+	cout<<right<<setw(60)<<setfill(' ')
+	<<"------------------------------------------------"<<endl<<endl;
 	cout<<"Enter your choice:"<<endl<<endl;
 	int choice1;
 	cin>>choice1;
-	
-	if (choice1==1){
-		 system("cls");
-		 int var=chooseMain();
-		 system("cls");
-
-		 	switch(var){
-			case 1:{
-				A.passwordProtect();
-				system("cls");
-				getDoctorDatabase();
-				break;
-			}
-			
-			case 2:{
-			    A.passwordProtect();
-				system("cls");
-				getPatientDatabase();
-				break;
-				
-			}
-				
-			case 3:{
-			    A.passwordProtect();
-				system("cls");
-				getBedDatabase();
-				break;
-			}
-					 
-			case 4:
-				{
-				return 0;
-				break;
-				}
+	if (choice1==1)
+	{
+		system("cls");
+		int var=chooseMain();
+		system("cls");
+		switch(var)
+		{
+			case 1:	{
+						A.passwordProtect();
+						system("cls");
+						getDoctorDatabase();
+						break;
+					}
+			case 2:	{
+			    		A.passwordProtect();
+						system("cls");
+						getPatientDatabase();
+						break;
+					}
+			case 3:	{
+			    		A.passwordProtect();
+						system("cls");
+						getBedDatabase();
+						break;
+					} 
+			case 4:	{
+						return 0;
+						break;
+					}
 			default:
 				cout<<"\nCome on!Enter a valid option."<<endl;
 		}
@@ -1335,15 +1364,24 @@ int main(){
 		return 0;
 	}
 	else
-	 cout<<"\nCome on!Enter a valid option."<<endl;
+	 	cout<<"\nCome on!Enter a valid option."<<endl;
 	
 
 	
 }
-*/
-//the chooseMain function
-int chooseMain(){
-	
+
+/******************************************************************************
+*Function Name    : int chooseMain()
+*
+*Description      : This function is used to display main menu    		   
+* 
+*Input Parameters : None
+* 
+* Return Value    : None
+* 
+******************************************************************************/
+int chooseMain()
+{	
 	int choice2;
 	cout<<right<<setw(40)<<setfill(' ')<<"\nMAIN MENU"<<endl<<endl<<endl;
 	cout<<right<<setw(80)<<setfill('-')<<"----------"<<endl;
@@ -1351,12 +1389,10 @@ int chooseMain(){
 	cout<<"			"<<"2.Enter Into Patients' Database"<<endl;
 	cout<<"			"<<"3.Check for Hospital Bed Availability"<<endl;
 	cout<<"			"<<"4.Exit"<<endl<<endl;
-	cout<<right<<setw(80)<<setfill('-')<<"----------"<<endl;
-	
+	cout<<right<<setw(80)<<setfill('-')<<"----------"<<endl;	
 	cout<<"\nEnter the number corresponding to your choice:"<<endl;
 	cin>>choice2;
-	return choice2;
-	
+	return choice2;	
 }
 /******************************************************************************
 *Function Name    : void getDoctorDatabase()
@@ -1368,7 +1404,8 @@ int chooseMain(){
 * Return Value    : None
 * 
 ******************************************************************************/
-void getDoctorDatabase(){
+void getDoctorDatabase()
+{
 	int choice_doc;
 	cout<<"\n"<<"WELCOME TO DOCTOR'S DATABASE"<<endl<<endl;
 	cout<<" "<<"1.Add New Doctor's Information"<<endl;
@@ -1385,39 +1422,38 @@ void getDoctorDatabase(){
 	system("cls");
 	switch(choice_doc)
 	{
-		case 1:{
+		case 1:	{
 		    		addDoc();
-				break;
-			}
-		case 2:{
-				doctor k;
-				editDoc(k);
-				break;
-			}
-		case 3:{
-				displayDoc();
-				break;
-			}
-		case 4:{
-				deleteDoc();
-				break;
-			}
-		case 5:{
-				dispDatabase();
-				break;
-			}
-		case 6:{
-				numberofDocs();
-				break;
-			}
-
-		case 7:{
-				exit(0);
-				break;
-			}
+					break;
+				}
+		case 2:	{
+					doctor k;
+					editDoc(k);
+					break;
+				}
+		case 3:	{
+					displayDoc();
+					break;
+				}
+		case 4:	{
+					deleteDoc();
+					break;
+				}
+		case 5:	{
+					dispDatabase();
+					break;
+				}
+		case 6:	{
+					numberofDocs();
+					break;
+				}
+		case 7:	{
+					exit(0);
+					break;
+				}
 		default:{
-				break;
-			}
+					break;
+				}
 	}
 }
 /******************************************************************************
@@ -1430,7 +1466,7 @@ void getDoctorDatabase(){
 * Return Value    : None
 * 
 ******************************************************************************/
-void	getPatientDatabase()
+void getPatientDatabase()
 {
 	int choice_pat;
 	cout<<"\n"<<"WELCOME TO PATIENT'S DATABASE"<<endl<<endl;
@@ -1449,42 +1485,42 @@ void	getPatientDatabase()
 	system("cls");
 	switch(choice_pat)
 	{
-		case 1:{
-				addPat();
-				break;
-			}
-		case 2:{
-				patient p;
-				editPat(p);
-				break;
-			}
-		case 3:{
-				displayPat();
-				break;
-			}
-		case 4:{
-				deletePat();
-				break;
-			}
-		case 5:{
-				dispPatDatabase();
-				break;
-			}
-		case 6:{
-				numberofPats();
-				break;
-			}
-		case 7:{
-				getDoctor();
-				break;
-			}
-		case 8:{
-				exit(0);
-				break;
-			}
+		case 1:	{
+					addPat();
+					break;
+				}
+		case 2:	{
+					patient p;
+					editPat(p);
+					break;
+				}
+		case 3:	{
+					displayPat();
+					break;
+				}
+		case 4:	{
+					deletePat();
+					break;
+				}
+		case 5:	{
+					dispPatDatabase();
+					break;
+				}
+		case 6:	{
+					numberofPats();
+					break;
+				}
+		case 7:	{
+					getDoctor();
+					break;
+				}
+		case 8:	{
+					exit(0);
+					break;
+				}
 		default:{
-				break;
-			}
+					break;
+				}
 	}
 }
 /******************************************************************************
@@ -1510,17 +1546,17 @@ void getBedDatabase()
 	system("cls");
 	switch(choice_bed)
 	{
-		case 1:{
-				getStatus();
-				break;
-			}
-		case 2:{
-				exit(0);
-				break;
-			}
+		case 1:	{
+					getStatus();
+					break;
+				}
+		case 2:	{
+					exit(0);
+					break;
+				}
 		default:{
-				break;
-			}
+					break;
+				}
 	}
 }
 
