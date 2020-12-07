@@ -2,9 +2,9 @@
  * File Name      : TestUtility.cpp
  *  
  * Description    : This is the file is responsible all the utility related
- *		     task of the Unit & class level testing.
+ *				     task of the Unit & class level testing.
  *
- * Modifiled Date : 22/09/2020
+ * Modifiled Date : 07/12/2020
  *
  *****************************************************************************/
 #include <thread>
@@ -25,7 +25,7 @@ ConfigReader* ConfigReader::m_pInstance = NULL_PTR;
 *Function Name : ConfigReader
 *
 * Description  : It is the constructor of the class ConfigReader which clears all the 
-*		  configuration settings 				   
+*		  		 configuration settings 				   
 * 
 * Parameters   : None
 * 
@@ -40,8 +40,8 @@ ConfigReader::ConfigReader()
 *Function Name : ConfigReader
 *
 * Description  : It is the destructor of the class ConfigReader which clears all the 
-*		  configuration settings 				   
-* 
+*		  		 configuration settings 				   
+* 	
 * Parameters   : None
 * 
 * Return Value : None
@@ -55,7 +55,7 @@ ConfigReader::~ConfigReader()
 *Function Name : ConfigReader* getInstance()
 *
 * Description  : This function will create an instance of class ConfigReader
-*		  and returns the pointer to the instance			   
+*		  		 and returns the pointer to the instance			   
 * 
 * Parameters   : None
 * 
@@ -64,10 +64,10 @@ ConfigReader::~ConfigReader()
 ******************************************************************************/
 ConfigReader* ConfigReader::getInstance()
 {
-	// No need to use double re-check lock mechanism here
-	// because this getInstance() will call at the time of
-	// initialization only and mostly, at the time of
-	// initialization, there will be only one thread.
+	/* No need to use double re-check lock mechanism here
+	   because this getInstance() will call at the time of
+	   initialization only and mostly, at the time of
+	   initialization, there will be only one thread. */
 
 	if(NULL_PTR == m_pInstance)
 	{
@@ -143,30 +143,21 @@ bool ConfigReader::parseFile(string fileName)
 	string line;
 	while(getline(inputFile, line))
 	{
-	      // Remove comment Lines
 		size_t found = line.find_first_of('#');
 		string configData = line.substr(0, found);
-
-		// Remove ^M from configData
-		configData.erase(std::remove(configData.begin(), configData.end(), '\r'), configData.end());
-
+		configData.erase(std::remove(configData.begin(), configData.end(), 
+		'\r'), configData.end());
 		if(configData.empty())
 		continue;
-
 		unsigned int length = configData.find(delimeter);
-
 		string tag, value;
-
 		if (length!=string::npos)
 		{
 			tag   = configData.substr(initPos, length);
 			value = configData.substr(length+1);
 		}
-
-		// Trim white spaces
 		tag   = reduce(tag);
 		value = reduce(value);
-      
 		if(tag.empty() || value.empty())
 			continue;
 
@@ -209,8 +200,8 @@ std::string ConfigReader::trim(const std::string& str, const std::string& whites
 }
 /******************************************************************************
 *Function Name : std::string reduce(const std::string& str,
-*      		  const std::string& fill,
-*     		  const std::string& whitespace)
+*      			  const std::string& fill,
+*     			  const std::string& whitespace)
 *
 * Description  : This function will reduce the file content by removing the whitespaces		   
 * 
@@ -223,17 +214,13 @@ std::string ConfigReader::reduce(const std::string& str,
       const std::string& fill,
       const std::string& whitespace)
 {
-	// trim first
-	string result = trim(str, whitespace);
-
-	   // replace sub ranges
-	size_t beginSpace = result.find_first_of(whitespace);
+	string result = trim(str, whitespace);    			   // trim first
+	size_t beginSpace = result.find_first_of(whitespace); // replace sub ranges
 	while (beginSpace != std::string::npos)
 	{
 		size_t endSpace = result.find_first_not_of(whitespace, beginSpace);
 		size_t range = endSpace - beginSpace;
 		result.replace(beginSpace, range, fill);
-
 		size_t newStart = beginSpace + fill.length();
 		beginSpace = result.find_first_of(whitespace, newStart);
 	}
@@ -270,15 +257,12 @@ void ConfigReader::dumpFileValues()
 ******************************************************************************/
 string TestUtility::getCsvFilePath(std::string fileName)
 {
-	// Create object of the class ConfigReader
+	/************** Create object of the class ConfigReader******************/
 	ConfigReader* p = ConfigReader::getInstance();
-
-	// parse the configuration file
+	/************* parse the configuration file ****************************/
 	p->parseFile();
-   
 	string filePath("");
 	p->getValue(fileName, filePath);
-   
 	return filePath;
 }
 /******************************************************************************  
@@ -355,7 +339,6 @@ string TestUtility::evaluvateTestcase(string msg)
 	{
 		std::this_thread::sleep_for(std::chrono::milliseconds(100));
 	}
-	//int test = stoi(getMsg());
 	string test = getMsg();
 	setMsg("");
 	return test;
@@ -366,31 +349,29 @@ string TestUtility::evaluvateTestcase(string msg)
 * Description  : read the csv file line by line and save it in a vector 				   
 * 
 * Parameters   : fileName name of the file to be read,
-*				   vecOfStrs variable to save data from csv line by line
+*				 vecOfStrs variable to save data from csv line by line
 * 
 * Return Value : true on successful read & false on read failure.
 * 
 ******************************************************************************/
-bool TestUtility::getFileContent(std::string fileName, std::vector<std::string> & vecOfStrs)
+bool TestUtility::getFileContent(std::string fileName, std::vector<std::string>
+ & vecOfStrs)
 {
-	// Open the File
-	std::ifstream in(fileName.c_str());
-	// Check if object is valid
-	if(!in)
+	std::ifstream in(fileName.c_str());  // Open the File
+	if(!in)                              // Check if object is valid
 	{
 		LOG_ERROR(fileName+" cannot open : LOG_ERROR");
 		return false;
 	}
 	std::string str;
-	// Read the next line from File untill it reaches the end.
+	/***** Read the next line from File untill it reaches the end.************/
 	while (std::getline(in, str))
 	{
-	// Line contains string of length > 0 then save it in vector
+	/******* Line contains string of length > 0 then save it in vector *******/
 	if(str.size() > 0)
 		vecOfStrs.push_back(str);
 	}
-	//Close The File
-	in.close();
+	in.close();                          //Close The File   
 	return true;
 }
 /******************************************************************************
