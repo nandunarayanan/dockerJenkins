@@ -1,7 +1,5 @@
-
-#ifndef __SERVERMAIN_H__
-#define __SERVERMAIN_H__
-
+#ifndef TEST_MAIN_H
+#define TEST_MAIN_H
 
 #include "../utility/TestUtility.h"
 #include <iostream>
