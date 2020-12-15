@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<suite parallel="false" name="splashScreenTests">
-  <test name="Heart_Sense">
-    <classes>
-      <class name="com.mobile.test.HS_Mobile_Test"/>
-    </classes>
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
