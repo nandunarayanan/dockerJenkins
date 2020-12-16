@@ -1,6 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite parallel="false" name="Suite">
   <test name="Test">
+  	<parameter name="cor_uid" value="tcsasha" />
+  	<parameter name="cor_pwd" value="asha@123" />
+  	<parameter name="cor_admin_uid" value="tcsadmin" />
+  	<parameter name="cor_admin_pwd" value="P@ssword@tcs123#" />
+  	<parameter name="incor_uid" value="tcsasha1" />
+  	<parameter name="incor_pwd" value="asha@1231" />
+  	<parameter name="incor_admin_uid" value="tcsadmin1" />
+  	<parameter name="incor_admin_pwd" value="P@ssword@tcs123#" />
     <classes>
       <class name="com.mobile.test.HS_Login_ScreenTest"/>
     </classes>

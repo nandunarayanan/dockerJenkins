@@ -1,3 +1,10 @@
+/*
+ * File Header
+ * ----------
+ * 
+ * File Name: HS_Permission_ScreenTest.java
+ * Suite xml: HS_Permission_ScreenTest.xml
+ */
 package com.mobile.test;
 
 import org.testng.annotations.Test;
@@ -22,6 +29,14 @@ public class HS_Permission_ScreenTest
 	
 
 	String Test_text = "This app was built for an older version of Android and may not work properly. Try checking for updates, or contact the developer.";
+	
+	/*
+	 * Function Header
+	 * ----------
+	 * 
+	 * Test Name: HS_PermissionScreen_TC_2
+	 * Description: Permission Screen Test for without disabling Camera and checking the pop-ups related to it
+	 */
 	
 	@Test(priority = 2, description = "2. Permission Screen Test for disabling Camera", dependsOnMethods = "HS_PermissionScreen_TC_1")
 	public void HS_PermissionScreen_TC_2() 
@@ -62,6 +77,14 @@ public class HS_Permission_ScreenTest
 			e.printStackTrace();
 		}
 	}
+	
+	/*
+	 * Function Header
+	 * ----------
+	 * 
+	 * Test Name: HS_PermissionScreen_TC_1
+	 * Description: Permission Screen Test for disabling Camera and checking the pop-ups related to it 
+	 */
 	
 	@Test(priority = 1, description = "1. Permission Screen Test for disabling Camera")
 	public void HS_PermissionScreen_TC_1() 
@@ -107,7 +130,7 @@ public class HS_Permission_ScreenTest
 		cap.setCapability("browserName", "");
 		cap.setCapability("platformVersion", "10");
 		cap.setCapability("platformName", "Android");
-		cap.setCapability("app", "https://github.com/nandunarayanan/apk/blob/main/heartsense_19_feb_19_1_0_19_2.apk?raw=true");
+		cap.setCapability("app", "https://github.com/nandunarayanan/apk/blob/main/heartsense_16_dec_20_1_0_19_2_CHEAT.apk?raw=true");
 		cap.setCapability("appPackage", "com.tcs.mumbailab.heartsense");
 		cap.setCapability("appActivity", "com.tcs.mumbailab.heartsense.LoginActivity");
 		
@@ -132,7 +155,6 @@ public class HS_Permission_ScreenTest
 	@AfterTest
 	public void tearDown()
 	{
-		//driver.close();
 		driver.quit();
 	}
 
