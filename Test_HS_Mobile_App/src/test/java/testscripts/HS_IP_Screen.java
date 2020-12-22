@@ -89,48 +89,48 @@ public class HS_IP_Screen extends ApplicationLaunch
 		 
 		
 		/*Clicking the ip button*/
-		MobileElement el02 = (MobileElement) driver.findElementById("com.tcs.mumbailab.heartsense:id/editIP");
+		MobileElement el02 = (MobileElement) driver.findElementById(app_id+":id/editIP");
 		el02.click();
 		System.out.println("editButton");
 		
-		Assert.assertEquals(((driver.findElementById("com.tcs.mumbailab.heartsense:id/existingIP")).isDisplayed()),true);
-		Assert.assertEquals(((driver.findElementById("com.tcs.mumbailab.heartsense:id/savebutton")).getText()),"SAVE IP");
-		Assert.assertEquals(((driver.findElementById("com.tcs.mumbailab.heartsense:id/closebutton")).getText()),"CLOSE");
+		Assert.assertEquals(((driver.findElementById(app_id+":id/existingIP")).isDisplayed()),true);
+		Assert.assertEquals(((driver.findElementById(app_id+":id/savebutton")).getText()),"SAVE IP");
+		Assert.assertEquals(((driver.findElementById(app_id+":id/closebutton")).getText()),"CLOSE");
 
 		
-		Assert.assertEquals(((driver.findElementById("com.tcs.mumbailab.heartsense:id/savebutton")).isEnabled()),true);
-		Assert.assertEquals(((driver.findElementById("com.tcs.mumbailab.heartsense:id/closebutton")).isEnabled()),true);	
-		Assert.assertEquals(((driver.findElementById("com.tcs.mumbailab.heartsense:id/savebutton")).isDisplayed()),true);
-		Assert.assertEquals(((driver.findElementById("com.tcs.mumbailab.heartsense:id/closebutton")).isDisplayed()),true);	
-		Assert.assertEquals(((driver.findElementById("com.tcs.mumbailab.heartsense:id/ipaddressfield")).isEnabled()),true);
-		Assert.assertEquals(((driver.findElementById("com.tcs.mumbailab.heartsense:id/input_layout_name1")).isEnabled()),true);	
-		Assert.assertEquals(((driver.findElementById("com.tcs.mumbailab.heartsense:id/input_layout_name2")).isEnabled()),true);
-		Assert.assertEquals(((driver.findElementById("com.tcs.mumbailab.heartsense:id/input_layout_name3")).isEnabled()),true);	
-		Assert.assertEquals(((driver.findElementById("com.tcs.mumbailab.heartsense:id/input_layout_name4")).isEnabled()),true);
+		Assert.assertEquals(((driver.findElementById(app_id+":id/savebutton")).isEnabled()),true);
+		Assert.assertEquals(((driver.findElementById(app_id+":id/closebutton")).isEnabled()),true);	
+		Assert.assertEquals(((driver.findElementById(app_id+":id/savebutton")).isDisplayed()),true);
+		Assert.assertEquals(((driver.findElementById(app_id+":id/closebutton")).isDisplayed()),true);	
+		Assert.assertEquals(((driver.findElementById(app_id+":id/ipaddressfield")).isEnabled()),true);
+		Assert.assertEquals(((driver.findElementById(app_id+":id/input_layout_name1")).isEnabled()),true);	
+		Assert.assertEquals(((driver.findElementById(app_id+":id/input_layout_name2")).isEnabled()),true);
+		Assert.assertEquals(((driver.findElementById(app_id+":id/input_layout_name3")).isEnabled()),true);	
+		Assert.assertEquals(((driver.findElementById(app_id+":id/input_layout_name4")).isEnabled()),true);
 
-		Assert.assertEquals(((driver.findElementById("com.tcs.mumbailab.heartsense:id/ipaddressfield")).isDisplayed()),true);
-		Assert.assertEquals(((driver.findElementById("com.tcs.mumbailab.heartsense:id/input_layout_name1")).isDisplayed()),true);	
-		Assert.assertEquals(((driver.findElementById("com.tcs.mumbailab.heartsense:id/input_layout_name2")).isDisplayed()),true);
-		Assert.assertEquals(((driver.findElementById("com.tcs.mumbailab.heartsense:id/input_layout_name3")).isDisplayed()),true);	
-		Assert.assertEquals(((driver.findElementById("com.tcs.mumbailab.heartsense:id/input_layout_name4")).isDisplayed()),true);	
+		Assert.assertEquals(((driver.findElementById(app_id+":id/ipaddressfield")).isDisplayed()),true);
+		Assert.assertEquals(((driver.findElementById(app_id+":id/input_layout_name1")).isDisplayed()),true);	
+		Assert.assertEquals(((driver.findElementById(app_id+":id/input_layout_name2")).isDisplayed()),true);
+		Assert.assertEquals(((driver.findElementById(app_id+":id/input_layout_name3")).isDisplayed()),true);	
+		Assert.assertEquals(((driver.findElementById(app_id+":id/input_layout_name4")).isDisplayed()),true);	
 		System.out.println("IP screen Verified!!");
 		
 		/*Sending the ip to the corresponding Fields*/
-		MobileElement el03 = (MobileElement) driver.findElementById("com.tcs.mumbailab.heartsense:id/editText1");
+		MobileElement el03 = (MobileElement) driver.findElementById(app_id+":id/editText1");
 		el03.sendKeys("0");
-		MobileElement el04 = (MobileElement) driver.findElementById("com.tcs.mumbailab.heartsense:id/editText2");
+		MobileElement el04 = (MobileElement) driver.findElementById(app_id+":id/editText2");
 		el04.sendKeys("0");
-		MobileElement el05 = (MobileElement) driver.findElementById("com.tcs.mumbailab.heartsense:id/editText3");
+		MobileElement el05 = (MobileElement) driver.findElementById(app_id+":id/editText3");
 		el05.sendKeys("0");
-		MobileElement el06 = (MobileElement) driver.findElementById("com.tcs.mumbailab.heartsense:id/editText4");
+		MobileElement el06 = (MobileElement) driver.findElementById(app_id+":id/editText4");
 		el06.sendKeys("0");
 		
 		/*Saving*/
-		MobileElement el07 = (MobileElement) driver.findElementById("com.tcs.mumbailab.heartsense:id/savebutton");
+		MobileElement el07 = (MobileElement) driver.findElementById(app_id+":id/savebutton");
 		el07.click();
 		System.out.println("save Button");
 		/*closing*/
-		MobileElement el08 = (MobileElement) driver.findElementById("com.tcs.mumbailab.heartsense:id/closebutton");
+		MobileElement el08 = (MobileElement) driver.findElementById(app_id+":id/closebutton");
 		el08.click();
 		System.out.println("Testing over");
 	} 
@@ -157,32 +157,32 @@ public class HS_IP_Screen extends ApplicationLaunch
 		
 		
 		/*Clicking the ip button*/
-		MobileElement el12 = (MobileElement) driver.findElementById("com.tcs.mumbailab.heartsense:id/editIP");
+		MobileElement el12 = (MobileElement) driver.findElementById(app_id+":id/editIP");
 		el12.click();
 		
 		/*Sending the ip to the corresponding Fields*/
-		MobileElement el13 = (MobileElement) driver.findElementById("com.tcs.mumbailab.heartsense:id/editText1");
+		MobileElement el13 = (MobileElement) driver.findElementById(app_id+":id/editText1");
 		el13.sendKeys(i1);
-		MobileElement el14 = (MobileElement) driver.findElementById("com.tcs.mumbailab.heartsense:id/editText2");
+		MobileElement el14 = (MobileElement) driver.findElementById(app_id+":id/editText2");
 		el14.sendKeys(i2);
-		MobileElement el15 = (MobileElement) driver.findElementById("com.tcs.mumbailab.heartsense:id/editText3");
+		MobileElement el15 = (MobileElement) driver.findElementById(app_id+":id/editText3");
 		el15.sendKeys(i3);
-		MobileElement el16 = (MobileElement) driver.findElementById("com.tcs.mumbailab.heartsense:id/editText4");
+		MobileElement el16 = (MobileElement) driver.findElementById(app_id+":id/editText4");
 		el16.sendKeys(i4);
 		
 		/*Saving*/
-		MobileElement el17 = (MobileElement) driver.findElementById("com.tcs.mumbailab.heartsense:id/savebutton");
+		MobileElement el17 = (MobileElement) driver.findElementById(app_id+":id/savebutton");
 		el17.click();
 		/*Closing*/
-		MobileElement el18 = (MobileElement) driver.findElementById("com.tcs.mumbailab.heartsense:id/closebutton");
+		MobileElement el18 = (MobileElement) driver.findElementById(app_id+":id/closebutton");
 		el18.click();
 		/*Again taking ip screen and checking the entered ip is present*/
-		MobileElement el19 = (MobileElement) driver.findElementById("com.tcs.mumbailab.heartsense:id/editIP");
+		MobileElement el19 = (MobileElement) driver.findElementById(app_id+":id/editIP");
 		el19.click();
 		
 
 		/*Verifying the saved ip is displayed in the screen or not*/
-		Assert.assertEquals(((driver.findElementById("com.tcs.mumbailab.heartsense:id/existingIP")).getText()),IP_chk);
+		Assert.assertEquals(((driver.findElementById(app_id+":id/existingIP")).getText()),IP_chk);
 		System.out.println("IP Verification Done using Data Driven method!!");			
 
 		/*Closing*/
@@ -212,32 +212,32 @@ public class HS_IP_Screen extends ApplicationLaunch
 		
 		
 		/*Clicking the ip button*/
-		MobileElement el12 = (MobileElement) driver.findElementById("com.tcs.mumbailab.heartsense:id/editIP");
+		MobileElement el12 = (MobileElement) driver.findElementById(app_id+":id/editIP");
 		el12.click();
 		
 		/*Sending the ip to the corresponding Fields*/
-		MobileElement el13 = (MobileElement) driver.findElementById("com.tcs.mumbailab.heartsense:id/editText1");
+		MobileElement el13 = (MobileElement) driver.findElementById(app_id+":id/editText1");
 		el13.sendKeys(i1);
-		MobileElement el14 = (MobileElement) driver.findElementById("com.tcs.mumbailab.heartsense:id/editText2");
+		MobileElement el14 = (MobileElement) driver.findElementById(app_id+":id/editText2");
 		el14.sendKeys(i2);
-		MobileElement el15 = (MobileElement) driver.findElementById("com.tcs.mumbailab.heartsense:id/editText3");
+		MobileElement el15 = (MobileElement) driver.findElementById(app_id+":id/editText3");
 		el15.sendKeys(i3);
-		MobileElement el16 = (MobileElement) driver.findElementById("com.tcs.mumbailab.heartsense:id/editText4");
+		MobileElement el16 = (MobileElement) driver.findElementById(app_id+":id/editText4");
 		el16.sendKeys(i4);
 		
 		/*Saving*/
-		MobileElement el17 = (MobileElement) driver.findElementById("com.tcs.mumbailab.heartsense:id/savebutton");
+		MobileElement el17 = (MobileElement) driver.findElementById(app_id+":id/savebutton");
 		el17.click();
 		/*Closing*/
-		MobileElement el18 = (MobileElement) driver.findElementById("com.tcs.mumbailab.heartsense:id/closebutton");
+		MobileElement el18 = (MobileElement) driver.findElementById(app_id+":id/closebutton");
 		el18.click();
 		/*Again taking ip screen and checking the entered ip is present*/
-		MobileElement el19 = (MobileElement) driver.findElementById("com.tcs.mumbailab.heartsense:id/editIP");
+		MobileElement el19 = (MobileElement) driver.findElementById(app_id+":id/editIP");
 		el19.click();
 		
 
 		/*Verifying the saved ip is displayed in the screen or not*/
-		Assert.assertEquals(((driver.findElementById("com.tcs.mumbailab.heartsense:id/existingIP")).getText()),IP_chk);
+		Assert.assertEquals(((driver.findElementById(app_id+":id/existingIP")).getText()),IP_chk);
 		System.out.println("IP Verification Done using parameterized method!!");			
 
 		/*Closing*/
