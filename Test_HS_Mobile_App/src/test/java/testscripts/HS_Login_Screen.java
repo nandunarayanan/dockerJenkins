@@ -8,7 +8,7 @@
  * Type			:(Test Scripts/Libraries) Test Scripts
  * 
  * Description	: This .java file is written to test the IP screen of the 
- * 				  Heart sense application.
+ * 		  application.
  * 
  * Test cases	: HS_Login_Screen_TC_DataDriven_valid_normal, 
  * 				  HS_Login_Screen_TC_DataDriven_valid_admin,
@@ -100,13 +100,13 @@ public class HS_Login_Screen extends ApplicationLaunch
 	@Test(priority = 0,dataProvider = "AuthenticationNormal")
 	public void HS_Login_Screen_TC_DataDriven_valid_normal(String sUserName, String sPassword) throws Exception 
 	{
-		MobileElement el62 = (MobileElement) driver.findElementById("com.tcs.mumbailab.heartsense:id/userName");
+		MobileElement el62 = (MobileElement) driver.findElementById(app_id+":id/userName");
 		el62.sendKeys(sUserName);
-		MobileElement el63 = (MobileElement) driver.findElementById("com.tcs.mumbailab.heartsense:id/password");
+		MobileElement el63 = (MobileElement) driver.findElementById(app_id+":id/password");
 		el63.sendKeys(sPassword);
 		if(APP_CHEAT)
 		{
-			MobileElement el64 = (MobileElement) driver.findElementById("com.tcs.mumbailab.heartsense:id/loginButton");
+			MobileElement el64 = (MobileElement) driver.findElementById(app_id+":id/loginButton");
 			el64.click();		
 			
 			/*Need to test the next screen detail here once Sujit gave the stand alone version of the apk*/	
@@ -127,13 +127,13 @@ public class HS_Login_Screen extends ApplicationLaunch
 	@Test(priority = 3,dataProvider = "AuthenticationAdmin")
 	public void HS_Login_Screen_TC_DataDriven_valid_admin(String sUserName, String sPassword) throws Exception 
 	{
-		MobileElement el62 = (MobileElement) driver.findElementById("com.tcs.mumbailab.heartsense:id/userName");
+		MobileElement el62 = (MobileElement) driver.findElementById(app_id+":id/userName");
 		el62.sendKeys(sUserName);
-		MobileElement el63 = (MobileElement) driver.findElementById("com.tcs.mumbailab.heartsense:id/password");
+		MobileElement el63 = (MobileElement) driver.findElementById(app_id+":id/password");
 		el63.sendKeys(sPassword);
 		if(APP_CHEAT)
 		{
-			MobileElement el64 = (MobileElement) driver.findElementById("com.tcs.mumbailab.heartsense:id/loginButton");
+			MobileElement el64 = (MobileElement) driver.findElementById(app_id+":id/loginButton");
 			el64.click();	
 			
 			/*Need to test the next screen detail here once Sujit gave the stand alone version of the apk*/		
@@ -154,13 +154,13 @@ public class HS_Login_Screen extends ApplicationLaunch
 	@Test(priority = 2,dataProvider = "InvalidAuthentication")
 	public void HS_Login_Screen_TC_DataDriven_invalid(String sUserName, String sPassword) throws Exception 
 	{
-		MobileElement el62 = (MobileElement) driver.findElementById("com.tcs.mumbailab.heartsense:id/userName");
+		MobileElement el62 = (MobileElement) driver.findElementById(app_id+":id/userName");
 		el62.sendKeys(sUserName);
-		MobileElement el63 = (MobileElement) driver.findElementById("com.tcs.mumbailab.heartsense:id/password");
+		MobileElement el63 = (MobileElement) driver.findElementById(app_id+":id/password");
 		el63.sendKeys(sPassword);
 		if(APP_CHEAT)
 		{
-			MobileElement el64 = (MobileElement) driver.findElementById("com.tcs.mumbailab.heartsense:id/loginButton");
+			MobileElement el64 = (MobileElement) driver.findElementById(app_id+":id/loginButton");
 			el64.click();			
 			
 			/*Need to test the next screen detail here once Sujit gave the stand alone version of the apk*/
@@ -187,13 +187,11 @@ public class HS_Login_Screen extends ApplicationLaunch
 		 {
 			 System.out.println("Permission PopUp");
 			 MobileElement el001 = (MobileElement) driver.findElementById
-					 ("com.android.packageinstaller:id"
-					 		+ "/permission_allow_button");
+					 (app_id+ "/permission_allow_button");
 			 el001.click();
 			 System.out.println("1 click");
 			 MobileElement el002 = (MobileElement) driver.findElementById
-					 ("com.android.packageinstaller:id"
-					 		+ "/permission_allow_button");
+					 (app_id+ "/permission_allow_button");
 			 el002.click();
 			 System.out.println("2 click");
 			 el002.click();
@@ -206,46 +204,46 @@ public class HS_Login_Screen extends ApplicationLaunch
 		/*checks of the Login Screen*/
 		
 		Assert.assertEquals(((driver.findElementById
-				("com.tcs.mumbailab.heartsense:id/heartsenseVersion")).
+				(app_id+":id/heartsenseVersion")).
 				getText()),"v 1.0.19_2");
 		Assert.assertEquals(((driver.findElementById
-				("com.tcs.mumbailab.heartsense:id/tcscopyright")).getText())
-							,"© 2019   Tata Consultancy Services Limited.");
+				(app_id+":id/tcscopyright")).getText())
+							,"Â© 2019   Tata Consultancy Services Limited.");
 		Assert.assertEquals(((driver.findElementById
-				("com.tcs.mumbailab.heartsense:id/editIP"))
+				(app_id+":id/editIP"))
 				.isDisplayed()),true);
 		Assert.assertEquals(((driver.findElementById
-				("com.tcs.mumbailab.heartsense:id/editIP"))
+				(app_id+":id/editIP"))
 				.isEnabled()),true);
 		Assert.assertEquals(((driver.findElementById
-				("com.tcs.mumbailab.heartsense:id/iconImage"))
+				(app_id+":id/iconImage"))
 				.isDisplayed()),true);
 		Assert.assertEquals(((driver.findElementById
-				("com.tcs.mumbailab.heartsense:id/userName"))
+				(app_id+":id/userName"))
 				.isEnabled()),true);
 		Assert.assertEquals(((driver.findElementById
-				("com.tcs.mumbailab.heartsense:id/userName"))
+				(app_id+":id/userName"))
 				.isDisplayed()),true);
 		Assert.assertEquals(((driver.findElementById
-				("com.tcs.mumbailab.heartsense:id/userName"))
+				(app_id+":id/userName"))
 				.getText()),"User Name");
 		Assert.assertEquals(((driver.findElementById
-				("com.tcs.mumbailab.heartsense:id/password"))
+				(app_id+":id/password"))
 				.isEnabled()),true);
 		Assert.assertEquals(((driver.findElementById
-				("com.tcs.mumbailab.heartsense:id/password"))
+				(app_id+":id/password"))
 				.isDisplayed()),true);
 		Assert.assertEquals(((driver.findElementById
-				("com.tcs.mumbailab.heartsense:id/password"))
+				(app_id+":id/password"))
 				.getText()),"Password");				
 		Assert.assertEquals(((driver.findElementById
-				("com.tcs.mumbailab.heartsense:id/loginButton"))
+				(app_id+":id/loginButton"))
 				.isEnabled()),true);
 		Assert.assertEquals(((driver.findElementById
-				("com.tcs.mumbailab.heartsense:id/loginButton"))
+				(app_id+":id/loginButton"))
 				.isDisplayed()),true);
 		Assert.assertEquals(((driver.findElementById
-				("com.tcs.mumbailab.heartsense:id/loginButton"))
+				(app_id+":id/loginButton"))
 				.getText()),"LOGIN");
 		
 	}
@@ -256,7 +254,7 @@ public class HS_Login_Screen extends ApplicationLaunch
 	{
 		try
 		{	
-			driver = appLaunch("heartsense");
+			driver = appLaunch("test");
 			System.out.println("Heart Sense Application started !!!!");			
 		}
 		catch(Exception e)
@@ -273,8 +271,7 @@ public class HS_Login_Screen extends ApplicationLaunch
 	{	
 		try
 		{	
-			driver.quit();
-			System.out.println("Heart Sense Application Ended !!!!");			
+			driver.quit();			
 		}
 		catch(Exception e)
 		{
