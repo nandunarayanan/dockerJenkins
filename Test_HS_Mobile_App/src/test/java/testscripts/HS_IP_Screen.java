@@ -8,7 +8,7 @@
  * Type			:(Test Scripts/Libraries) Test Scripts
  * 
  * Description	: This .java file is written to test the IP screen of the 
- * 				  Heart sense application.
+ * 		  application.
  * 
  * Test cases	: HS_IP_Screen_TC_1, HS_IP_Screen_TC_2, HS_IP_Screen_TC_3
  * 
@@ -250,7 +250,7 @@ public class HS_IP_Screen extends ApplicationLaunch
 	{
 		try
 		{	
-			driver = appLaunch("heartsense");		
+			driver = appLaunch("test");		
 		}
 		catch(Exception e)
 		{
