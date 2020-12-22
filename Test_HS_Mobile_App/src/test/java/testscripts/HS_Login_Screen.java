@@ -204,7 +204,7 @@ public class HS_Login_Screen extends ApplicationLaunch
 		/*checks of the Login Screen*/
 		
 		Assert.assertEquals(((driver.findElementById
-				(app_id+":id/heartsenseVersion")).
+				(app_id+":id/hsVersion")).
 				getText()),"v 1.0.19_2");
 		Assert.assertEquals(((driver.findElementById
 				(app_id+":id/tcscopyright")).getText())
@@ -254,8 +254,7 @@ public class HS_Login_Screen extends ApplicationLaunch
 	{
 		try
 		{	
-			driver = appLaunch("test");
-			System.out.println("Heart Sense Application started !!!!");			
+			driver = appLaunch("test");			
 		}
 		catch(Exception e)
 		{
