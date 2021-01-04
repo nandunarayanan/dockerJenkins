@@ -1,5 +1,20 @@
+/*****************************************************************************
+ * File Name 	: ScreenLaunch.java
+ * 
+ * Version		: 0.1
+ * 
+ * Author		: Bastin
+ * 
+ * Type			:(Test Scripts/Libraries) Test Scripts
+ * 
+ * Description	: This .java file is written to launch the different screens
+ * 				  as part of the scripting. This file will be reused at
+ * 				  different places.
+ * 
+ * Test cases	: NA
+ *****************************************************************************/
 package utility;
-
+/*Inclusion of required libraries*/
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -13,7 +28,7 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
+/*Below class contains the utility class for different excel funtions*/
 public class ExcelUtils 
 {
 	private static XSSFSheet ExcelWSheet;
@@ -23,7 +38,17 @@ public class ExcelUtils
 	private static XSSFCell Cell;
 
 	//private static XSSFRow Row;
-	
+	/*****************************************************************************
+	 * Function/Test Name  : setExcelFile
+	 * 
+	 * Test ID	  		   : NA
+	 * 
+	 * Type		           :NA
+	 * 
+	 * Group	           :NA
+	 * 
+	 * Description         : This function helps in setting the excel file
+	 *****************************************************************************/	
 	public static void setExcelFile(String Path,String SheetName) throws Exception 
 	{
 		try 
@@ -44,7 +69,19 @@ public class ExcelUtils
 		}
 	}
 	
-	
+
+	/*****************************************************************************
+	 * Function/Test Name  : getTableArray
+	 * 
+	 * Test ID	  		   : NA
+	 * 
+	 * Type		           :NA
+	 * 
+	 * Group	           :NA
+	 * 
+	 * Description         : This function helps returning the whole content
+	 * 						 as a table
+	 *****************************************************************************/
 	public static Object[][] getTableArray(String FilePath, String SheetName) throws Exception 
 	{
 		String[][] tabArray = null;
@@ -103,7 +140,18 @@ public class ExcelUtils
 		}
 		return(tabArray);
 	}
-	
+
+	/*****************************************************************************
+	 * Function/Test Name  : getCellData
+	 * 
+	 * Test ID	  		   : NA
+	 * 
+	 * Type		           :NA
+	 * 
+	 * Group	           :NA
+	 * 
+	 * Description         : This function helps in getting the cell data
+	 *****************************************************************************/
 	public static String getCellData(int RowNum, int ColNum) throws Exception 
 	{
 		try
@@ -129,8 +177,18 @@ public class ExcelUtils
 		}
 		return null;
 	}
-
-
+	/*****************************************************************************
+	 * Function/Test Name  : getTestCaseName
+	 * 
+	 * Test ID	  		   : NA
+	 * 
+	 * Type		           :NA
+	 * 
+	 * Group	           :NA
+	 * 
+	 * Description         : This function helps This function helps in 
+	 * 						 finding test case name in the row
+	 *****************************************************************************/
 	public static String getTestCaseName(String TC_Name) 
 	{
 		try
@@ -144,7 +202,17 @@ public class ExcelUtils
 		return null;
 	}
 
-
+	/*****************************************************************************
+	 * Function/Test Name  : getRowContains
+	 * 
+	 * Test ID	  		   : NA
+	 * 
+	 * Type		           :NA
+	 * 
+	 * Group	           :NA
+	 * 
+	 * Description         : This function helps in finding row with pattern
+	 *****************************************************************************/
 	public static int getRowContains(String TC_Name, int row_no) 
 	{
 		try
@@ -157,13 +225,35 @@ public class ExcelUtils
 		}
 		return 0;
 	}
-	
+
+	/*****************************************************************************
+	 * Function/Test Name  : getRowCountInSheet
+	 * 
+	 * Test ID	  		   : NA
+	 * 
+	 * Type		           :NA
+	 * 
+	 * Group	           :NA
+	 * 
+	 * Description         : This function helps in counting the valid row no
+	 *****************************************************************************/
 	public static int getRowCountInSheet()
 	{
 	    int rowcount = ExcelWSheet.getLastRowNum()-ExcelWSheet.getFirstRowNum();
 	    return rowcount;
 	 }
-	
+
+	/*****************************************************************************
+	 * Function/Test Name  : setCellValue
+	 * 
+	 * Test ID	  		   : NA
+	 * 
+	 * Type		           :NA
+	 * 
+	 * Group	           :NA
+	 * 
+	 * Description         : This function helps in setting value in the cell
+	 *****************************************************************************/
 	 public void setCellValue(int rowNum,int cellNum,String cellValue,String excelFilePath) throws IOException 
 	 {		 
 			//creating a new cell in row and setting value to it      
@@ -171,8 +261,6 @@ public class ExcelUtils
 			    
 			FileOutputStream outputStream = new FileOutputStream(excelFilePath);
 			ExcelWBook.write(outputStream);		
-	  }
-	
-	
+	  }	
 }
 

@@ -14,8 +14,8 @@
  * Test cases	: NA
  *****************************************************************************/
 package utility;
-import io.appium.java_client.MobileElement;
 /*Inclusion of required libraries*/
+import io.appium.java_client.MobileElement;
 import tcslibs_android.ApplicationLaunch;
 /*Below class contains the utility class for launching different screen*/
 public class ScreenLaunch extends ApplicationLaunch
@@ -127,6 +127,157 @@ public class ScreenLaunch extends ApplicationLaunch
 	public void Launch_Patient_Info_Screen()
 	{
 		Launch_Add_Patient_Screen();
-		/*Need to write script for clicking the Next Button & etc.*/
+		/*Need to write script for adding the details & clicking the Next Button*/
 	}
+	/*****************************************************************************
+	 * Function/Test Name  : Launch_Patient_Meta_Data_Screen
+	 * 
+	 * Test ID	  		   : NA
+	 * 
+	 * Type		           :NA
+	 * 
+	 * Group	           :NA
+	 * 
+	 * Description         : This function helps in launching the Patient Meta
+	 * 						 Data screen
+	 *****************************************************************************/
+	public void Launch_Patient_Meta_Data_Screen()
+	{
+		Launch_Patient_Info_Screen();
+		/*Need to write script for adding the details & clicking the Next Button.*/
+	}
+	/*****************************************************************************
+	 * Function/Test Name  : Launch_CAD_Risk_Screen
+	 * 
+	 * Test ID	  		   : NA
+	 * 
+	 * Type		           :NA
+	 * 
+	 * Group	           :NA
+	 * 
+	 * Description         : This function helps in launching the CAD
+	 * 						 risk output screen
+	 *****************************************************************************/
+	public void Launch_CAD_Risk_Screen()
+	{
+		Launch_Patient_Meta_Data_Screen();
+		/*Need to write script for adding the details & clicking the Next
+		Button for risk category.*/
+	}
+
+	/*****************************************************************************
+	 * Function/Test Name  : Launch_CAD_wo_Risk_Screen
+	 * 
+	 * Test ID	  		   : NA
+	 * 
+	 * Type		           :NA
+	 * 
+	 * Group	           :NA
+	 * 
+	 * Description         : This function helps in launching the CAD
+	 * 						 risk output screen
+	 *****************************************************************************/
+	public void Launch_CAD_wo_Risk_Screen()
+	{
+		Launch_Patient_Meta_Data_Screen();
+		/*Need to write script for adding the details & clicking the Next
+		Button for non-risk category.*/
+	}
+
+
+	/*****************************************************************************
+	 * Function/Test Name  : Launch_Data_capture_Screen
+	 * 
+	 * Test ID	  		   : NA
+	 * 
+	 * Type		           :NA
+	 * 
+	 * Group	           :NA
+	 * 
+	 * Description         : This function helps in launching the Data
+	 * 						 capture screen
+	 *****************************************************************************/
+	public void Launch_Data_capture_Screen()
+	{
+		Launch_CAD_Risk_Screen();
+		/*Need to write script for clicking the Perform Test Button.*/
+	}
+
+	
+	/*****************************************************************************
+	 * Function/Test Name  : Launch_Board_Config_Screen
+	 * 
+	 * Test ID	  		   : NA
+	 * 
+	 * Type		           :NA
+	 * 
+	 * Group	           :NA
+	 * 
+	 * Description         : This function helps in launching the Board Config
+	 * 						 screen
+	 *****************************************************************************/
+	public void Launch_Board_Config_Screen()
+	{
+		String uid = "";
+		String pwd = "";
+		Launch_Login_Screen();
+		/*Admin credentials*/
+		MobileElement el62 = (MobileElement) driver.findElementById(app_id+":id/userName");
+		el62.sendKeys(uid);
+		MobileElement el63 = (MobileElement) driver.findElementById(app_id+":id/password");
+		el63.sendKeys(pwd);
+		if(APP_CHEAT)
+		{
+			MobileElement el64 = (MobileElement) driver.findElementById(app_id+":id/loginButton");
+			el64.click();			
+			
+			/*Need to test the next screen detail here once Sujit gave the stand alone version of the apk*/
+			
+		}
+		else
+		{
+			/*Need to write script for clicking the Next*/
+		}
+		
+		/*Add script for clicking board config button*/
+	}
+
+	/*****************************************************************************
+	 * Function/Test Name  : Launch_Factory_Reset_Screen
+	 * 
+	 * Test ID	  		   : NA
+	 * 
+	 * Type		           :NA
+	 * 
+	 * Group	           :NA
+	 * 
+	 * Description         : This function helps in launching the Factory 
+	 * 						 Reset screen
+	 *****************************************************************************/
+	public void Launch_Factory_Reset_Screen()
+	{
+		String uid = "";
+		String pwd = "";
+		Launch_Login_Screen();
+		/*Admin credentials*/
+		MobileElement el62 = (MobileElement) driver.findElementById(app_id+":id/userName");
+		el62.sendKeys(uid);
+		MobileElement el63 = (MobileElement) driver.findElementById(app_id+":id/password");
+		el63.sendKeys(pwd);
+		if(APP_CHEAT)
+		{
+			MobileElement el64 = (MobileElement) driver.findElementById(app_id+":id/loginButton");
+			el64.click();			
+			
+			/*Need to test the next screen detail here once Sujit gave the stand alone version of the apk*/
+			
+		}
+		else
+		{
+			/*Need to write script for clicking the Next*/
+		}
+		
+		/*Add script for clicking Reset button*/
+	}
+	
 }
