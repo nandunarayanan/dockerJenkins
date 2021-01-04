@@ -27,7 +27,8 @@ import org.testng.annotations.AfterTest;
 /*Below class contains the test cases for the IP screen*/
 /*TestNG settings for run all the defined test cases*/
 public class HS_Login_Screen extends ApplicationLaunch
-{	
+{
+	String app_id="";
 	/*Data provider with excel settings in the name of AuthenticationNormal*/
 	@DataProvider
 	public Object[][] AuthenticationNormal() 
