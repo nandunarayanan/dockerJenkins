@@ -20,6 +20,7 @@ import org.testng.annotations.Test;
 import io.appium.java_client.MobileElement;
 import tcslibs_android.ApplicationLaunch;
 import utility.ExcelUtils;
+import utility.ScreenLaunch;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.BeforeTest;
 import org.testng.Assert;
@@ -27,8 +28,9 @@ import org.testng.annotations.AfterTest;
 /*Below class contains the test cases for the IP screen*/
 /*TestNG settings for run all the defined test cases*/
 public class HS_Login_Screen extends ApplicationLaunch
-{
+{	
 	String app_id="";
+	ScreenLaunch sl = new ScreenLaunch();
 	/*Data provider with excel settings in the name of AuthenticationNormal*/
 	@DataProvider
 	public Object[][] AuthenticationNormal() 
@@ -183,24 +185,19 @@ public class HS_Login_Screen extends ApplicationLaunch
 			+ "and parameters in the Login Page")
 	public void HS_Login_Screen_TC_1() 
 	{
+		
 		/*Permission Pop-up*/
-		 if(APP_CHEAT)
-		 {
-			 System.out.println("Permission PopUp");
-			 MobileElement el001 = (MobileElement) driver.findElementById
-					 (app_id+ "/permission_allow_button");
-			 el001.click();
-			 System.out.println("1 click");
-			 MobileElement el002 = (MobileElement) driver.findElementById
-					 (app_id+ "/permission_allow_button");
-			 el002.click();
-			 System.out.println("2 click");
-			 el002.click();
-			 System.out.println("3 click");
-			 el002.click();
-			 System.out.println("4 click");
-			 System.out.println("Permission screen over");
-		 }
+		/*
+		 * if(APP_CHEAT) { System.out.println("Permission PopUp"); MobileElement el001 =
+		 * (MobileElement) driver.findElementById (app_id+ "/permission_allow_button");
+		 * el001.click(); System.out.println("1 click"); MobileElement el002 =
+		 * (MobileElement) driver.findElementById (app_id+ "/permission_allow_button");
+		 * el002.click(); System.out.println("2 click"); el002.click();
+		 * System.out.println("3 click"); el002.click(); System.out.println("4 click");
+		 * System.out.println("Permission screen over"); }
+		 */
+
+		sl.Launch_Login_Screen();
 		 
 		/*checks of the Login Screen*/
 		
@@ -255,7 +252,8 @@ public class HS_Login_Screen extends ApplicationLaunch
 	{
 		try
 		{	
-			driver = appLaunch("test");			
+			String app_id = "app_id";
+			driver = appLaunch(app_id);			
 		}
 		catch(Exception e)
 		{
