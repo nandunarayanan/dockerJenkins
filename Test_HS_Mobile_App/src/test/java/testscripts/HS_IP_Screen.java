@@ -34,6 +34,7 @@ public class HS_IP_Screen extends ApplicationLaunch
 	String IP_Seperator = ".";
 	String IP_chk_init = "Existing Server IP Address :\nhttps://";
 	String IP_End = "/";
+	String app_id="";
 	
 	/*Data provider with excel settings in the name of IP_Check*/
 	@DataProvider
