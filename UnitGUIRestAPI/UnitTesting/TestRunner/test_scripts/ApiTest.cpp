@@ -58,7 +58,7 @@ TEST_F(DdsAPI_Test, CSVReadType_1)
 *		 		     This test uses the input from csv file and tests the api
 *					 by passing the data through dds
 *
-******************************************************************************/
+******************************************************************************
 TEST_F(DdsAPI_Test, CSVReadType_2)
 {
 	{
@@ -71,3 +71,4 @@ TEST_F(DdsAPI_Test, CSVReadType_2)
 		
 	}
 }
+*/
