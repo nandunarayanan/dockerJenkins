@@ -192,7 +192,7 @@ std::string Api::Run(std::string testcase)
 	}
 				
 	std::cout << "Count: " << count <<  std::endl;
-/*
+
 	switch (dtype_arg1)
 	{
 		case "int":
@@ -244,7 +244,7 @@ std::string Api::Run(std::string testcase)
 		default:
 			return 0;
 	}
-*/
+
 	switch (count)
 	{
 	case 0:
