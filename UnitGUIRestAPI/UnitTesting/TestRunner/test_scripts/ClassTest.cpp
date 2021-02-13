@@ -144,7 +144,7 @@ TEST_F(DoctorTest,getspec_csv)
 * Description   : This test is using test fixture PasswordTest and it is 
 *		  		  testing the method passwordProtect() of password class.		   
 *
-******************************************************************************/
+******************************************************************************
 TEST_F(DoctorTest,deleteDoc)
 {
 	s-> setD_delete(0);
