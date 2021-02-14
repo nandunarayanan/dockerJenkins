@@ -442,7 +442,7 @@ void displayDoc()
 void deleteDoc()
 {
 	string x;
-	cout<<"\nEnter the ID of the Doctor whose profile you want to Delete:"
+	//cout<<"\nEnter the ID of the Doctor whose profile you want to Delete:"
 	<<endl;
 #ifndef TESTING
 	cin>>x;
