@@ -443,7 +443,7 @@ void deleteDoc()
 {
 	string x;
 	//cout<<"\nEnter the ID of the Doctor whose profile you want to Delete:"
-	<<endl;
+	//<<endl;
 #ifndef TESTING
 	cin>>x;
 #endif
