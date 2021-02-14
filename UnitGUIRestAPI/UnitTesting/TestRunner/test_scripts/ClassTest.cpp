@@ -156,13 +156,13 @@ TEST_F(DoctorTest,deleteDoc)
 * Description  : This test is using the DoctorTest Test fixture and is testing 
 *                the getSpec() method of the class doctor. 
 *
-******************************************************************************/
-/*TEST_F(DoctorTest,addDoc)
+******************************************************************************
+TEST_F(DoctorTest,addDoc)
 {
 	s -> setD_adddoc(1);
 	addDoc();    
     EXPECT_EQ("MBBS", d.qual);
-} */
+} 
 /******************************************************************************
 *Test Fixture Name : PatientTest 
 *
