@@ -17,6 +17,8 @@
 #include<stdlib.h>
 #include<stdio.h>
 
+#define TESTING 1
+
 /* Testing Macro */
 #ifdef TESTING
 
